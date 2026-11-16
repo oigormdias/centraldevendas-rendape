@@ -577,6 +577,16 @@ b,strong{font-weight:700}
 @keyframes ebb{to{transform:translateY(calc(100% + 90px))}}
 @media (prefers-reduced-motion:reduce){#intro:not(.force){display:none}}
 /* Indicação */
+.ind-panel{display:grid;grid-template-columns:auto 1fr auto;gap:18px;align-items:center;background:radial-gradient(120% 160% at 90% 0%,#9C8BE0 0%,#765DD1 50%,#5B44B0 100%);color:#fff;text-decoration:none;border-radius:var(--radius-m) var(--radius-m) 48px 48px;padding:22px 26px;margin:-4px 0 22px;transition:transform .15s}
+.ind-panel:hover{transform:translateY(-2px)}
+.ind-panel:focus-visible{outline:3px solid #0E0E1C;outline-offset:3px}
+.ind-panel-ico{width:56px;height:56px;border-radius:16px;background:rgba(255,255,255,.16);display:grid;place-items:center;flex:none}
+.ind-panel-t{display:flex;flex-direction:column;gap:2px;min-width:0}
+.ind-panel-t small{font-size:.72rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;opacity:.85}
+.ind-panel-t b{font-size:1.35rem;font-weight:700;line-height:1.2}
+.ind-panel-t span{font-size:.9rem;opacity:.9}
+.ind-panel-go{display:inline-flex;align-items:center;gap:8px;background:#fff;color:#765DD1;font-weight:700;border-radius:999px;padding:13px 22px;white-space:nowrap}
+@media (max-width:640px){.ind-panel{grid-template-columns:auto 1fr;padding:18px}.ind-panel-go{grid-column:1/-1;justify-content:center}}
 .iflow{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;counter-reset:f}
 .iflow li{background:var(--surface);border-radius:var(--radius-m);padding:18px;display:flex;flex-direction:column;gap:8px;position:relative}
 .iflow li:not(:last-child)::after{content:"";position:absolute;right:-10px;top:30px;width:8px;height:8px;border-top:2px solid var(--verdeSoft);border-right:2px solid var(--verdeSoft);transform:rotate(45deg);z-index:1}
@@ -2100,6 +2110,7 @@ function viewIndicacao(){
   const col=(k,t,d)=>`<section class="ib-col ib-${k}"><header><h4>${t}</h4><span class="ib-n">${B[k].length}</span></header><p class="ib-d">${d}</p>${B[k].map(c=>`<article class="ib-card"><span class="ib-src">${c[0]}</span><h5>${c[1]}</h5><p>${c[2]}</p></article>`).join('')}</section>`;
   const ss=IND_S.filter(s=>indG==='todos'||s[0]===indG);
   return `<div class="page-head"><div><span class="eyebrow">Embaixadores Rendapê</span><h1>Programa de <b>Indicação</b></h1><p>Você apresenta, a gente cuida. O fluxo, o método de pedido, os scripts e as regras do bônus que o time usa com clientes, embaixadores e parceiros.</p></div>${badge('ok')}</div>
+  <a class="ind-panel" href="https://rendape-indicacao.pages.dev" target="_blank" rel="noopener"><span class="ind-panel-ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg></span><span class="ind-panel-t"><small>Painel de indicação</small><b>Registrar e acompanhar indicações</b><span>Abra o painel para cadastrar quem foi indicado e ver o andamento até o Pix.</span></span><span class="ind-panel-go">Abrir painel <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></span></a>
   <div class="sdr-nav">${[['Fluxo',0],['Bônus',1],['PONTES',2],['Na call',3],['Pós-venda',4],['Scripts',5],['Regras',7],['Indicadores',8]].map(([t,i])=>`<a href="#indicacao" data-jump="ind-${i}" class="chip">${t}</a>`).join('')}</div>
 
   <h3 class="sec-title" id="ind-0">Do pedido ao Pix</h3>
