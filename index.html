@@ -576,6 +576,158 @@ b,strong{font-weight:700}
 @keyframes rise{from{opacity:0;transform:translate(-50%,-38%)}to{opacity:1;transform:translate(-50%,-50%)}}
 @keyframes ebb{to{transform:translateY(calc(100% + 90px))}}
 @media (prefers-reduced-motion:reduce){#intro:not(.force){display:none}}
+/* SDR · Funil de conversão */
+.sdr-seg{display:inline-flex;gap:4px;background:var(--surface);border-radius:999px;padding:4px;margin:0 0 18px;flex-wrap:wrap}
+.sdr-seg button{border:0;background:transparent;border-radius:999px;padding:9px 18px;font-weight:500;color:var(--ink2);cursor:pointer;font-size:.92rem}
+.sdr-seg button:hover{color:var(--ink)}
+.sdr-seg button.on{background:#765DD1;color:#fff}
+.fn-seg{background:var(--surface2);margin:0}
+.fn-demo{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;background:#0E0E1C;color:#fff;border-radius:var(--radius-m);padding:16px 20px;margin-bottom:16px;border:2px dashed #B9AAEC}
+.fn-demo b{display:block;font-size:1.05rem}
+.fn-demo span{font-size:.88rem;opacity:.85}
+.fn-demo .btn.line{color:#fff;border-color:#fff}
+.fn-tag{font-size:.7rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;background:#0E0E1C;color:#fff;border-radius:7px;padding:3px 8px;vertical-align:middle}
+.fn-calc{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:14px}
+.fn-calc-in,.fn-calc-out,.fn-card{background:var(--surface);border-radius:var(--radius-m);padding:22px;min-width:0}
+.fn-calc-in{display:flex;flex-direction:column;gap:18px}
+.fn-big{display:flex;flex-direction:column;gap:6px;font-size:.84rem;font-weight:500;color:var(--ink2)}
+.fn-big .fn-num{font-size:1.8rem;font-weight:300;padding:8px 14px;width:100%}
+.fn-num,.fn-sel,.fn-in{font:inherit;font-size:.92rem;color:var(--ink);background:var(--surface2);border:1.5px solid var(--line);border-radius:10px;padding:8px 10px;min-width:0;letter-spacing:0;text-transform:none;font-weight:400}
+.fn-num:focus,.fn-sel:focus,.fn-in:focus{outline:0;border-color:var(--verde)}
+.fn-sl{display:flex;flex-direction:column;gap:6px}
+.fn-sl-h{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.fn-sl-h label{font-weight:500;font-size:.95rem}
+.fn-sl-v{display:inline-flex;align-items:center;gap:4px;color:var(--ink2);font-size:.9rem}
+.fn-sl-v .fn-num{width:78px;text-align:right;font-variant-numeric:tabular-nums}
+.fn-sl small{font-size:.78rem;color:var(--mute)}
+.fn-sl input[type=range]{width:100%;accent-color:#765DD1;height:28px;margin:0}
+.fn-ref{display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-size:.84rem;color:var(--ink2);border-top:1px solid var(--line);padding-top:14px}
+.fn-need{display:flex;flex-direction:column;gap:2px;margin-bottom:16px;padding:14px 16px;border-radius:14px;background:var(--verdeTint)}
+.fn-need span{font-size:.88rem;color:var(--ink2)}
+.fn-need b{font-size:2rem;font-weight:300;letter-spacing:-.03em;color:var(--verde);line-height:1.1}
+.fn-need small{font-size:.8rem;color:var(--ink2)}
+.fn-funnel{display:flex;flex-direction:column;gap:4px}
+.fn-st{display:grid;grid-template-columns:120px minmax(0,1fr) 120px;gap:14px;align-items:center}
+.fn-lab{display:flex;flex-direction:column;text-align:right;min-width:0}
+.fn-lab span{font-size:.78rem;color:var(--mute)}
+.fn-lab b{font-size:1.45rem;font-weight:500;line-height:1.15;font-variant-numeric:tabular-nums}
+.fn-lab small{font-size:.74rem;color:var(--mute)}
+.fn-shape{height:54px;position:relative}
+.fn-shape i{position:absolute;inset:0;clip-path:polygon(calc(50% - var(--w1)/2) 0,calc(50% + var(--w1)/2) 0,calc(50% + var(--w2)/2) 100%,calc(50% - var(--w2)/2) 100%);transition:clip-path .25s}
+.fn-cv{font-size:.8rem;color:var(--mute);line-height:1.25}
+.fn-cv b{display:block;font-size:1rem;color:var(--ink);font-weight:500;font-variant-numeric:tabular-nums}
+.fn-leak{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;padding:4px 134px 6px}
+.fn-n{opacity:.5;font-weight:300;font-size:.82em;white-space:nowrap;font-variant-numeric:tabular-nums}
+.fn-kpi .v .fn-n{font-size:.42em;letter-spacing:0;margin-left:6px}
+.fn-cv .fn-n,.fn-sum .fn-n,.fn-tbl .fn-n,.fn-chip .fn-n{color:var(--ink);font-size:.78rem}
+.fn-cv .fn-n,.fn-sum .fn-n{display:block}
+.fn-cv .fn-n{white-space:normal}
+@media (max-width:640px){.fn-chip{white-space:normal;text-align:center}}
+.fn-chip{font-size:.78rem;color:var(--ink2);background:var(--surface2);border-radius:999px;padding:4px 10px;white-space:nowrap}
+.fn-chip b{color:var(--ink);font-weight:500}
+.fn-chip.ghost{background:transparent;border:1px dashed var(--line)}
+.fn-sum{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:16px;border-top:1px solid var(--line);padding-top:14px}
+.fn-sum span{display:block;font-size:.78rem;color:var(--mute)}
+.fn-sum b{font-size:1.35rem;font-weight:500;font-variant-numeric:tabular-nums}
+.fn-filters{display:flex;gap:12px;flex-wrap:wrap;align-items:flex-end;background:var(--surface);border-radius:var(--radius-m);padding:14px 16px;margin-bottom:8px}
+.fn-f{display:flex;flex-direction:column;gap:5px;font-size:.72rem;font-weight:500;color:var(--mute);letter-spacing:.08em;text-transform:uppercase;min-width:0}
+.fn-f small{text-transform:none;letter-spacing:0;font-weight:400;font-size:.74rem}
+.fn-filters .fn-f{flex:1 1 170px}
+.fn-metodo{font-size:.85rem;color:var(--ink2);margin:0 0 14px}
+.fn-metodo b{color:var(--ink);font-weight:500}
+.fn-kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-bottom:14px}
+.fn-kpi{background:var(--surface);border-radius:var(--radius-m);padding:18px;display:flex;flex-direction:column;gap:3px;align-items:flex-start;min-width:0}
+.fn-kpi .t{font-size:.86rem;font-weight:500;color:var(--ink2)}
+.fn-kpi .v{font-size:2.2rem;font-weight:300;letter-spacing:-.03em;line-height:1.15;font-variant-numeric:tabular-nums}
+.fn-kpi .m{font-size:.78rem;color:var(--mute)}
+.fn-flag{display:inline-flex;align-items:center;gap:4px;font-size:.74rem;font-weight:500;border-radius:7px;padding:2px 8px;margin-top:4px;background:var(--surface2);color:var(--ink2);white-space:nowrap}
+.fn-flag.ok{background:var(--okBg);color:var(--ok)}
+.fn-flag.bad{background:#FBE4E2;color:#A3271E}
+:root[data-theme="dark"] .fn-flag.bad{background:#47201D;color:#F4A59D}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .fn-flag.bad{background:#47201D;color:#F4A59D}}
+.fn-delta{font-size:.76rem;color:var(--ink2);margin-top:2px}
+.fn-pend{margin-bottom:14px}
+.fn-card{margin-bottom:14px}
+.fn-ch{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap;margin-bottom:14px}
+.fn-ch h3{margin:0;font-size:1.12rem;font-weight:500}
+.fn-ch .sub{margin:2px 0 0;font-size:.84rem;color:var(--mute);max-width:62ch}
+.fn-mini{margin:0}
+.fn-mini .chip{padding:5px 12px;font-size:.82rem}
+.fn-serie{position:relative;width:100%;min-height:230px}
+.fn-serie svg{display:block;touch-action:pan-y}
+.fn-grid-l{stroke:var(--line);stroke-width:1}
+.fn-ax{fill:var(--mute);font:300 11px var(--font)}
+.fn-meta-l{stroke:var(--ink2);stroke-width:1.5;stroke-dasharray:5 5}
+.fn-meta-t{fill:var(--ink2);font-weight:500}
+.fn-line{fill:none;stroke:var(--verde);stroke-width:2;stroke-linejoin:round;stroke-linecap:round}
+.fn-pt{fill:var(--surface);stroke:var(--verde);stroke-width:2}
+.fn-pt.sel{fill:var(--verde);stroke:var(--surface)}
+.fn-cross{stroke:var(--mute);stroke-width:1}
+.fn-tip{position:absolute;pointer-events:none;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:8px 10px;font-size:.8rem;display:flex;flex-direction:column;gap:1px;white-space:nowrap;z-index:2}
+.fn-tip span{font-size:1.05rem;font-weight:500;font-variant-numeric:tabular-nums}
+.fn-tip small{color:var(--mute)}
+.fn-tabview{margin-top:10px}
+.fn-tabview summary{cursor:pointer;font-size:.84rem;color:var(--verde);font-weight:500}
+.fn-tabview .tbl-wrap{margin-top:10px;background:var(--surface2)}
+.fn-tbl table{min-width:900px;font-size:.85rem}
+.fn-tbl th,.fn-tbl td{padding:11px 9px}
+.fn-tbl td{font-variant-numeric:tabular-nums}
+.fn-tbl th,.fn-tbl td{white-space:nowrap}
+.fn-docs{grid-template-columns:repeat(2,minmax(0,1fr))}
+@media (max-width:980px){.fn-docs{grid-template-columns:1fr}}
+@media (max-width:640px){.fn-tbl th,.fn-tbl td{white-space:normal}}
+.fn-eq{color:var(--mute);font-size:.76rem}
+.fn-alerts{display:flex;flex-direction:column;gap:8px;margin-bottom:12px}
+.fn-alert{display:flex;gap:10px;align-items:flex-start;font-size:.88rem;background:#FBE4E2;color:#5A1712;border-radius:12px;padding:10px 12px}
+:root[data-theme="dark"] .fn-alert{background:#47201D;color:#F8D4CF}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .fn-alert{background:#47201D;color:#F8D4CF}}
+.fn-okmsg{font-size:.88rem;color:var(--ok);margin:0 0 12px}
+.fn-dev .fn-tag{display:inline-block;margin-bottom:12px;background:#765DD1}
+.fn-empty b{display:block;font-size:1.1rem;font-weight:500;color:var(--ink);margin-bottom:6px}
+.fn-empty p{margin:0 auto 16px;max-width:52ch}
+.fn-actions{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.fn-box{background:var(--surface);border-radius:var(--radius-m);padding:16px 20px;margin-top:14px}
+.fn-box summary{cursor:pointer;font-weight:500;color:var(--verde)}
+.fn-metaform{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:14px}
+.fn-metaform .fn-actions{grid-column:1/-1}
+.fn-form{background:var(--surface);border-radius:var(--radius-m);padding:20px;display:flex;flex-direction:column;gap:14px}
+.fn-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.fn-legend{margin:0;font-size:.82rem;color:var(--ink2)}
+.fn-err:empty{display:none}
+.fn-err{background:#FBE4E2;color:#5A1712;border-radius:12px;padding:10px 14px;font-size:.88rem}
+.fn-err p{margin:2px 0}
+.fn-docs .mot-kv li{grid-template-columns:minmax(0,1fr) minmax(0,1.2fr)}
+@media (max-width:1180px){.fn-kpis{grid-template-columns:repeat(2,minmax(0,1fr))}.fn-calc{grid-template-columns:1fr}}
+@media (max-width:640px){
+  .fn-st{grid-template-columns:78px minmax(0,1fr) 78px;gap:8px}
+  .fn-lab b{font-size:1.1rem}
+  .fn-shape{height:46px}
+  .fn-leak{padding:2px 0 6px}
+  .fn-sum{grid-template-columns:1fr 1fr}
+  .fn-kpi .v{font-size:1.8rem}
+  .fn-kpis{gap:10px}
+  .fn-kpi{padding:14px}
+  .fn-grid,.fn-metaform{grid-template-columns:1fr 1fr}
+  .fn-calc-in,.fn-calc-out,.fn-card{padding:16px}
+  .sdr-seg{display:flex}
+  .sdr-seg button{flex:1}
+  .fn-tbl table{min-width:0}
+}
+/* Pace do lançamento */
+.pc-in{display:flex;flex-direction:column;gap:14px}
+.pc-ins{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;align-items:end}
+.pc-reset{justify-content:flex-end}
+.pc-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.pc-r{background:var(--surface2);border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:4px;min-width:0}
+.pc-r .t{font-size:.86rem;font-weight:500;color:var(--ink2)}
+.pc-r .v{font-size:2.3rem;font-weight:300;letter-spacing:-.03em;line-height:1.1;color:var(--verde);font-variant-numeric:tabular-nums}
+.pc-r .v small{font-size:.85rem;letter-spacing:0;color:var(--mute);margin-left:6px}
+.pc-r .m{font-size:.8rem;color:var(--ink2)}
+.pc-r .m b{font-weight:500;color:var(--ink)}
+.pc-sens td{font-variant-numeric:tabular-nums}
+.pc-sens td.pc-atual{background:var(--verdeTint);font-weight:500}
+@media (max-width:1180px){.pc-ins,.pc-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:640px){.pc-r .v{font-size:1.9rem}}
 /* Indicação */
 .ind-panel{display:grid;grid-template-columns:auto 1fr auto;gap:18px;align-items:center;background:radial-gradient(120% 160% at 90% 0%,#9C8BE0 0%,#765DD1 50%,#5B44B0 100%);color:#fff;text-decoration:none;border-radius:var(--radius-m) var(--radius-m) 48px 48px;padding:22px 26px;margin:-4px 0 22px;transition:transform .15s}
 .ind-panel:hover{transform:translateY(-2px)}
@@ -748,9 +900,10 @@ b,strong{font-weight:700}
   run(first);
 })();
 /* ======================= DADOS ======================= */
-const ATUALIZADO = '15 nov 2026';
+const ATUALIZADO = '17 nov 2026';
 
 const ICONS = {
+  pace:'<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 17.5a9 9 0 1 1 15 0"/><path d="m12 13 4-4.5"/><circle cx="12" cy="13" r="1.6"/></svg>',
   indicacao:'<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="3.2"/><circle cx="17" cy="10" r="2.6"/><path d="M2.5 20c.6-3.4 2.9-5.5 5.5-5.5s4.9 2.1 5.5 5.5"/><path d="M14.5 15.2c.8-.5 1.6-.7 2.5-.7 2.1 0 3.9 1.7 4.5 4.5"/></svg>',
   inicio:'<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11.5 12 4l9 7.5"/><path d="M5 10v9.5a.5.5 0 0 0 .5.5H10v-5.5h4V20h4.5a.5.5 0 0 0 .5-.5V10"/></svg>',
   pontos:'<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M20.5 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.5A8 8 0 1 1 20.5 11.5Z"/><path d="M8.5 10h7M8.5 13.5h4.5"/></svg>',
@@ -771,6 +924,7 @@ const WAVES = '<svg viewBox="0 0 560 220" fill="none" aria-hidden="true"><g stro
 const AREAS = [
   {id:'inicio', nome:'Visão geral', cor:'var(--ink)'},
   {id:'sdr', nome:'SDRs', cor:'var(--verde)'},
+  {id:'pace', nome:'Pace do lançamento', cor:'var(--verde)'},
   {id:'closer', nome:'Closers', cor:'var(--verde)'},
   {id:'pontos', nome:'Pontos de Vista', cor:'var(--caramelo)'},
   {id:'objecoes', nome:'Objeções', cor:'var(--mar)'},
@@ -1067,8 +1221,18 @@ document.addEventListener('click', async e=>{
   try{
     const user = await window.claude?.use?.('user');
     IS_OWNER = user ? await user.isOwner() : false;
+    try{ CAN_EDIT = user ? !!(await user.canEdit()) || IS_OWNER : false; }catch(_){ CAN_EDIT = IS_OWNER; }
     DB = await window.claude?.use?.('db');
+    if(!DB){ FN_STATE = 'none'; fnRefresh(); }
     if(DB){
+      DB.collection('funil').onSnapshot(snap=>{
+        const a=[]; snap.docs.forEach(d=>{ if(d.exists){ const r=fnClean(d.data()); if(r) a.push({...r, id:d.id}); } });
+        FN=a; FN_STATE='ok'; fnRefresh();
+      }, ()=>{ FN_STATE='erro'; fnRefresh(); });
+      DB.collection('funil_metas').onSnapshot(snap=>{
+        const m={}; snap.docs.forEach(d=>{ if(d.exists){ const v=fnCleanMeta(d.data()); if(v) m[d.id]=v; } });
+        FMETAS=m; fnRefresh();
+      }, ()=>{});
       DB.collection('status').onSnapshot(snap=>{
         const m={}; snap.docs.forEach(d=>{ if(d.exists){ const v=d.data(); if(v&&ST[v.s]) m[d.id]={s:v.s}; } });
         OVR=m; refreshStatus();
@@ -1081,7 +1245,7 @@ document.addEventListener('click', async e=>{
       }, ()=>{});
     }
     if(IS_OWNER) paint(true);
-  }catch(_){}
+  }catch(_){ if(FN_STATE==='loading'){ FN_STATE='none'; fnRefresh(); } }
 })();
 const badge = s => `<span class="badge ${ST[s][0]}"><i class="dot ${ST[s][0]}"></i>${ST[s][1]}</span>`;
 const copyBtn = (txt, label='Copiar') => `<button class="copy" data-copy="${encodeURIComponent(txt)}">${ICONS.copy}<span>${label}</span></button>`;
@@ -1098,7 +1262,7 @@ const today = () => { const d=new Date(); d.setHours(0,0,0,0); return d; };
 const daysTo = (y,m,d) => Math.round((new Date(y,m-1,d) - today())/86400000);
 
 /* ======================= NAV ======================= */
-const counts = {inicio:'', pontos:'', objecoes:OBJ.length, guerrilha:'', reportagens:'', follow:'', glossario:'', sdr:'', closer:''};
+const counts = {inicio:'', pontos:'', objecoes:OBJ.length, guerrilha:'', reportagens:'', follow:'', glossario:'', sdr:'', closer:'', pace:''};
 function renderNav(cur){
   $('#nav').innerHTML = AREAS.map(a=>`<a href="#${a.id}" class="${a.id===cur?'on':''}" ${a.id===cur?'aria-current="page"':''}><span class="ico">${ICONS[a.id]}</span>${a.nome}${counts[a.id]?`<span class="count">${counts[a.id]}</span>`:''}</a>`).join('');
   $('#tabbar').innerHTML = AREAS.map(a=>`<a href="#${a.id}" class="${a.id===cur?'on':''}" ${a.id===cur?'aria-current="page"':''}><span class="ico">${ICONS[a.id]}</span>${a.nome}</a>`).join('');
@@ -1792,6 +1956,8 @@ function bindFollow(){
 /* ======================= GLOSSÁRIO E NOVIDADES ======================= */
 const NOTION_URL = 'https://app.notion.com/p/RENDAP-ATUAL-USAR-ESTE-3ec3e97bcc5c8011999ddf066c37d4f8?source=copy_link';
 const CHANGES = [
+  {d:'2026-11-17', t:'Pace do lançamento', r:'Nova aba com o ritmo diário de leads, agendamentos, reuniões e vendas para bater 50 vendas até 1º de dezembro, com o funil do que precisamos e onde o SDR mais ajuda.'},
+  {d:'2026-11-17', t:'Funil de conversão dos SDRs', r:'Nova seção na área SDR: calculadora do funil (de leads a vendas e o caminho inverso) e metas por SDR. O painel com os resultados reais está em desenvolvimento.'},
   {d:'2026-11-15', t:'Celular e iPad', r:'No iPad e no celular o menu vira uma barra de abas embaixo, os blocos se reorganizam em colunas e as tabelas viram cartões. O PC continua igual.'},
   {d:'2026-11-14', t:'Nova área: Indicação', r:'Programa Embaixadores Rendapê: fluxo do pedido ao Pix, bônus por imóvel (R$ 1.500 até R$ 500 mil, R$ 2.000 acima), método PONTES, os quatro momentos da call, cadência pós-venda, 28 scripts e as regras do bônus.'},
   {d:'2026-11-12', t:'Nome do empreendimento', r:'O produto se chama Aurora Wellness Living, desenvolvido pela Rendapê. Visão geral, números oficiais, guerrilha, glossário e prompt mestre já usam o nome.'},
@@ -1970,7 +2136,10 @@ const SDR_FAQ = ['Quanto custa?','Onde fica?','Quando entrega?','Tem financiamen
 const fala = (who,txt) => `<div class="fala${who==='Lead'?' lead':''}"><span class="who">${who}</span><p>${ph(txt)}</p></div>`;
 const touch = (lab,v) => `<div class="cad-t"><span class="tag">${lab[0]}</span><p>${ph(lab[1])}</p>${lab[2]?copyBtn(lab[1].replace(/\[Nome\]/g,'[Nome]')):''}</div>`;
 function viewSdr(){
-  return `<div class="page-head"><div><span class="eyebrow">Pré-venda</span><h1>Central dos <b>SDRs</b></h1><p>O card de ligação de qualificação (versão 1.3, nov/2026) e a cadência de 5 dias (versão 1.0, out/2026), validados pelo time.</p></div>${badge('ok')}</div>
+  const head = `<div class="page-head"><div><span class="eyebrow">Pré-venda</span><h1>Central dos <b>SDRs</b></h1><p>${sdrTab==='funil' ? 'Funil de conversão: calculadora, metas e resultado real de cada SDR, de leads a vendas.' : 'O card de ligação de qualificação (versão 1.3, nov/2026) e a cadência de 5 dias (versão 1.0, out/2026), validados pelo time.'}</p></div>${badge('ok')}</div>
+  <div class="sdr-seg" role="group" aria-label="Seção da área SDR"><button type="button" data-sdrtab="playbook" class="${sdrTab==='playbook'?'on':''}" aria-pressed="${sdrTab==='playbook'}">Playbook</button><button type="button" data-sdrtab="funil" class="${sdrTab==='funil'?'on':''}" aria-pressed="${sdrTab==='funil'}">Funil de conversão</button></div>`;
+  if(sdrTab==='funil') return head + viewFunil();
+  return head + `
   <div class="sdr-nav">${['Lógica','Critérios','Roteiro','Frases','Bastão','Regras','Cadência','Respostas rápidas'].map((t,i)=>`<a href="#sdr" data-jump="sdr-${i}" class="chip">${t}</a>`).join('')}</div>
 
   <h3 class="sec-title" id="sdr-0">1 · Oito etapas, uma reunião bem marcada</h3>
@@ -2026,8 +2195,567 @@ function viewSdr(){
   <div class="team-grid">${SDR_FAQ.map(q=>`<article class="team-card"><h4>${q}</h4>${slot('Aguardando a resposta oficial')}</article>`).join('')}</div>`;
 }
 function bindSdr(){
+  document.querySelectorAll('[data-sdrtab]').forEach(b=>b.onclick=()=>{ sdrTab=b.dataset.sdrtab; paint(false); });
+  if(sdrTab==='funil') bindFunil();
   document.querySelectorAll('[data-jump]').forEach(a=>a.addEventListener('click',e=>{ e.preventDefault(); const el=document.getElementById(a.dataset.jump); if(el) el.scrollIntoView({behavior:'smooth',block:'start'}); }));
 }
+/* ======================= SDR · FUNIL DE CONVERSÃO ======================= */
+/*FN-CALC-START*/
+const FN_CAMPOS = ['leads','agendadas','realizadas','noshow','canceladas','reagendadas','pendentes','vendas'];
+const FN_META = {agend:31, comp:65, noshow:35, conv:20};
+const FN_BASE_REF = 100; /* base de referência das projeções; não é meta */
+/* Taxa = numerador / denominador × 100. Denominador zero devolve null (exibido como N/D). */
+const fnRate = (n, d) => (d > 0 && isFinite(n)) ? n / d * 100 : null;
+/* Projeção pela meta, sem arredondar nenhum valor intermediário. */
+function fnProj(leads, m){
+  const agendadas  = leads * m.agend / 100;
+  const realizadas = agendadas * m.comp / 100;
+  const noshow     = agendadas - realizadas;   // na projeção, toda agendada não realizada conta como no-show
+  const vendas     = realizadas * m.conv / 100;
+  return {leads, agendadas, realizadas, noshow, vendas,
+    taxaNoshow: fnRate(noshow, agendadas), convLR: fnRate(realizadas, leads), convFinal: fnRate(vendas, leads)};
+}
+/* Calculadora reversa: leads necessários para uma meta de vendas. */
+function fnLeadsPara(vendas, m){ const k = (m.agend/100) * (m.comp/100) * (m.conv/100); return k > 0 ? vendas / k : null; }
+function fnAgg(rows){
+  const s = {n: rows.length}; FN_CAMPOS.forEach(k => s[k] = 0);
+  rows.forEach(r => FN_CAMPOS.forEach(k => s[k] += (+r[k] || 0)));
+  return s;
+}
+function fnTaxas(s){
+  return {
+    agend:   fnRate(s.agendadas, s.leads),
+    comp:    fnRate(s.realizadas, s.agendadas),
+    noshow:  fnRate(s.noshow, s.agendadas),
+    cancel:  fnRate(s.canceladas, s.agendadas),
+    naoReal: fnRate(s.agendadas - s.realizadas, s.agendadas),
+    conv:    fnRate(s.vendas, s.realizadas),
+    convLR:  fnRate(s.realizadas, s.leads),
+    final:   fnRate(s.vendas, s.leads)
+  };
+}
+/* Regras de consistência de um lançamento. Devolve a lista de erros (vazia = válido). */
+function fnCheck(r){
+  const e = [];
+  FN_CAMPOS.forEach(k => { if(!Number.isInteger(r[k]) || r[k] < 0) e.push(`O campo ${k} precisa ser um número inteiro, zero ou maior.`); });
+  if(e.length) return e;
+  const desf = r.realizadas + r.noshow + r.canceladas + r.pendentes;
+  if(desf !== r.agendadas) e.push(`Realizadas, no-show, canceladas e pendentes somam ${desf}, mas há ${r.agendadas} agendadas. Toda reunião agendada termina em um desses quatro desfechos.`);
+  if(r.vendas > r.realizadas) e.push('Vendas não podem passar das reuniões realizadas.');
+  if(r.reagendadas > r.agendadas) e.push('Reagendadas não podem passar das agendadas.');
+  if(r.base === 'entrada' && r.agendadas > r.leads) e.push('Na base por data de entrada, agendadas não podem passar dos leads.');
+  return e;
+}
+const fnR1  = x => Math.round(x * 10 + 1e-9) / 10;
+const fnN1  = x => x == null ? 'N/D' : fnR1(x).toLocaleString('pt-BR', {minimumFractionDigits:1, maximumFractionDigits:1});
+const fnP1  = x => x == null ? 'N/D' : fnN1(x) + '%';
+const fnInt = x => x == null ? 'N/D' : Math.round(x).toLocaleString('pt-BR');
+const fnMesAdd = (ym, k) => { const [y, m] = ym.split('-').map(Number); const d = new Date(y, m - 1 + k, 1); return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0'); };
+/*FN-CALC-END*/
+
+const FN_MESES = ['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez'];
+const fnNum = (n, d, f = fnInt) => `<span class="fn-n">${f(n)} de ${f(d)}</span>`;
+const fnMesLab = ym => FN_MESES[+ym.slice(5) - 1] + '/' + ym.slice(2, 4);
+const fnSlug = s => norm(s).replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') || 'sdr';
+const fnE = s => escH(String(s == null ? '' : s)).replace(/"/g, '&quot;');
+const FN_CORES = ['#C9BEF0', '#9C8BE0', '#765DD1', '#5B44B0'];
+const FN_BASES = {entrada:'Data de entrada do lead', reuniao:'Data da reunião'};
+
+let sdrTab = 'playbook', FN = [], FN_STATE = 'loading', FMETAS = {}, CAN_EDIT = false, fnDemo = false;
+let fnF = {sdr:'todos', equipe:'todas', per:'', base:'entrada', ord:'final', serie:'agend'};
+let fnCalc = {modo:'leads', leads:100, alvo:10, agend:31, comp:65, conv:20, ref:'global'};
+let fnEditing = null;
+setTimeout(() => { if(FN_STATE === 'loading'){ FN_STATE = 'timeout'; fnRefresh(); } }, 10000);
+
+function fnClean(v){
+  if(!v || typeof v.sdr !== 'string' || !v.sdr.trim() || !/^\d{4}-\d{2}$/.test(v.mes || '') || !FN_BASES[v.base]) return null;
+  const r = {sdr: v.sdr.trim().slice(0, 60), equipe: typeof v.equipe === 'string' ? v.equipe.trim().slice(0, 60) : '', mes: v.mes, base: v.base};
+  for(const k of FN_CAMPOS){ const n = Number(v[k]); if(!Number.isInteger(n) || n < 0) return null; r[k] = n; }
+  return r;
+}
+function fnCleanMeta(v){
+  if(!v) return null; const m = {};
+  for(const k of Object.keys(FN_META)){ const n = Number(v[k]); if(isFinite(n) && n >= 0 && n <= 100) m[k] = n; }
+  return Object.keys(m).length ? m : null;
+}
+function fnMetas(sdr){
+  return {...FN_META, ...(FMETAS.global || {}), ...(sdr && sdr !== 'todos' ? (FMETAS['sdr-' + fnSlug(sdr)] || {}) : {})};
+}
+function fnRefresh(){
+  if(currentView() !== 'sdr' || sdrTab !== 'funil') return;
+  const a = document.activeElement;
+  if(a && a.closest && a.closest('.fn-form,.fn-calc,.fn-metaform')) return;
+  paint(true);
+}
+
+/* Dados de demonstração: fictícios, gerados na tela e nunca salvos. */
+function fnDemoRows(){
+  const fim = new Date().getFullYear() + '-' + String(new Date().getMonth() + 1).padStart(2, '0');
+  const sdrs = [['SDR Demo A', 'Equipe Demo 1', .34, .70, .22, .05], ['SDR Demo B', 'Equipe Demo 1', .27, .60, .18, .08], ['SDR Demo C', 'Equipe Demo 2', .31, .66, .20, .04]];
+  const out = [];
+  ['entrada', 'reuniao'].forEach((base, bi) => sdrs.forEach((s, i) => { for(let j = 0; j < 5; j++){
+    const mes = fnMesAdd(fim, j - 4), leads = 92 + ((i * 37 + j * 11 + bi * 5) % 25);
+    const agendadas = Math.round(leads * s[2] * (1 + ((j % 3) - 1) * .06));
+    const realizadas = Math.round(agendadas * s[3]), canceladas = Math.round(agendadas * s[5]);
+    const pendentes = j === 4 ? Math.round(agendadas * .06) : 0;
+    out.push({sdr:s[0], equipe:s[1], mes, base, leads, agendadas, realizadas, canceladas, pendentes,
+      noshow: agendadas - realizadas - canceladas - pendentes, reagendadas: Math.round(agendadas * .12), vendas: Math.round(realizadas * s[4])});
+  }}));
+  return out;
+}
+const fnRows = () => fnDemo ? fnDemoRows() : FN;
+
+/* Funil em formato de funil: cada faixa estreita até a largura da etapa seguinte. */
+function fnFunnel(st){
+  const top = st[0].v || 0, w = v => top > 0 ? Math.max(v / top * 100, 5) : 5;
+  return `<div class="fn-funnel">${st.map((s, i) => {
+    const w1 = w(s.v), w2 = i < st.length - 1 ? w(st[i + 1].v) : w1 * .8;
+    return `<div class="fn-st"><div class="fn-lab"><span>${s.k}</span><b>${s.txt}</b>${s.meta ? `<small>${s.meta}</small>` : ''}</div><div class="fn-shape" title="${fnE(s.k + ': ' + s.txt)}"><i style="--w1:${w1}%;--w2:${w2}%;background:${FN_CORES[i]}"></i></div><div class="fn-cv">${s.conv || ''}</div></div>${s.leak ? `<div class="fn-leak">${s.leak}</div>` : ''}`;
+  }).join('')}</div>`;
+}
+
+/* ---------- Calculadora ---------- */
+function fnCalcOut(){
+  const c = fnCalc, m = {agend:c.agend, comp:c.comp, conv:c.conv};
+  let leads = c.leads, head = '';
+  if(c.modo === 'vendas'){
+    const need = fnLeadsPara(c.alvo, m);
+    leads = need == null ? 0 : need;
+    head = need == null
+      ? `<div class="fn-need"><span>Com alguma taxa em zero, nenhuma quantidade de leads chega a ${fnInt(c.alvo)} vendas.</span></div>`
+      : `<div class="fn-need"><span>Para ${fnN1(c.alvo)} vendas, o SDR precisa de</span><b>${fnN1(need)} leads</b><small>Na prática, ${fnInt(Math.ceil(need - 1e-9))} leads (arredondado para cima).</small></div>`;
+  }
+  const p = fnProj(leads, m);
+  return head + fnFunnel([
+    {k:'Leads', v:p.leads, txt:fnN1(p.leads)},
+    {k:'Agendadas', v:p.agendadas, txt:fnN1(p.agendadas), conv:`<b>${fnP1(c.agend)}</b><span class="fn-n">${fnN1(p.agendadas)} de ${fnN1(p.leads)} leads</span>`,
+      leak:`<span class="fn-chip">No-show projetado <b>${fnN1(p.noshow)}</b> · ${fnP1(p.taxaNoshow)} <span class="fn-n">de ${fnN1(p.agendadas)} agendadas</span></span>`},
+    {k:'Realizadas', v:p.realizadas, txt:fnN1(p.realizadas), conv:`<b>${fnP1(c.comp)}</b><span class="fn-n">${fnN1(p.realizadas)} de ${fnN1(p.agendadas)} agendadas</span>`},
+    {k:'Vendas', v:p.vendas, txt:fnN1(p.vendas), conv:`<b>${fnP1(c.conv)}</b><span class="fn-n">${fnN1(p.vendas)} de ${fnN1(p.realizadas)} realizadas</span>`}
+  ]) + `<div class="fn-sum"><div><span>Leads → realizadas</span><b>${fnP1(p.convLR)}</b> ${fnNum(p.realizadas, p.leads, fnN1)}</div><div><span>Conversão final</span><b>${fnP1(p.convFinal)}</b> ${fnNum(p.vendas, p.leads, fnN1)}</div><div><span>Vendas projetadas</span><b>${fnN1(p.vendas)}</b></div></div>`;
+}
+function fnCalcHTML(){
+  const c = fnCalc, sdrs = [...new Set(fnRows().map(r => r.sdr))].sort();
+  const sl = (k, t, d) => `<div class="fn-sl"><div class="fn-sl-h"><label for="fc-${k}">${t}</label><span class="fn-sl-v"><input class="fn-num" type="number" min="0" max="100" step="0.5" id="fc-${k}n" data-fc="${k}" value="${c[k]}" aria-label="${t} em %">%</span></div><input type="range" min="0" max="100" step="0.5" id="fc-${k}" data-fc="${k}" value="${c[k]}"><small>${d}</small></div>`;
+  return `<div class="fn-calc">
+    <div class="fn-calc-in">
+      <div class="sdr-seg fn-seg" role="group" aria-label="Modo da calculadora"><button type="button" data-fcmodo="leads" class="${c.modo === 'leads' ? 'on' : ''}" aria-pressed="${c.modo === 'leads'}">Tenho X leads</button><button type="button" data-fcmodo="vendas" class="${c.modo === 'vendas' ? 'on' : ''}" aria-pressed="${c.modo === 'vendas'}">Quero X vendas</button></div>
+      ${c.modo === 'leads'
+        ? `<label class="fn-big">Leads no período<input class="fn-num" type="number" min="0" step="1" id="fc-leads" data-fc="leads" value="${c.leads}"></label>`
+        : `<label class="fn-big">Meta de vendas<input class="fn-num" type="number" min="0" step="1" id="fc-alvo" data-fc="alvo" value="${c.alvo}"></label>`}
+      ${sl('agend', 'Taxa de agendamento', 'Agendadas ÷ leads')}
+      ${sl('comp', 'Taxa de comparecimento', 'Realizadas ÷ agendadas')}
+      ${sl('conv', 'Conversão em vendas', 'Vendas ÷ realizadas')}
+      <div class="fn-ref"><label for="fc-ref">Usar as metas de</label><select class="fn-sel" id="fc-ref"><option value="global">Padrão do time</option>${sdrs.map(s => `<option value="${fnE(s)}" ${c.ref === s ? 'selected' : ''}>${fnE(s)}</option>`).join('')}</select><button type="button" class="lnk" id="fc-reset">Voltar às metas</button></div>
+    </div>
+    <div class="fn-calc-out" id="fc-out" aria-live="polite">${fnCalcOut()}</div>
+  </div>`;
+}
+
+/* ---------- Painel ---------- */
+function fnScope(rows){
+  return rows.filter(r => r.base === fnF.base && (fnF.sdr === 'todos' || r.sdr === fnF.sdr) && (fnF.equipe === 'todas' || r.equipe === fnF.equipe));
+}
+function fnPeriodo(meses){
+  const last = meses[meses.length - 1];
+  let per = fnF.per;
+  if(!per || (per.startsWith('m:') && !meses.includes(per.slice(2)))) per = 'm:' + last;
+  let win, prev, lab, prevLab;
+  if(per === 'tudo'){ win = meses; prev = null; lab = 'todo o histórico'; }
+  else if(per === '3m'){ win = [fnMesAdd(last, -2), fnMesAdd(last, -1), last]; prev = [fnMesAdd(last, -5), fnMesAdd(last, -4), fnMesAdd(last, -3)]; lab = fnMesLab(win[0]) + ' a ' + fnMesLab(last); prevLab = 'os 3 meses anteriores'; }
+  else { const m = per.slice(2); win = [m]; prev = [fnMesAdd(m, -1)]; lab = fnMesLab(m); prevLab = fnMesLab(prev[0]); }
+  return {per, win, prev, lab, prevLab};
+}
+function fnKpi(t, v, meta, opt = {}){
+  let st = '';
+  if(opt.val != null && meta != null){
+    const ok = opt.max ? opt.val <= meta : opt.val >= meta;
+    st = `<span class="fn-flag ${ok ? 'ok' : 'bad'}">${ok ? '✓ Na meta' : (opt.max ? '▲ Acima do limite' : '▼ Abaixo da meta')}</span>`;
+  }
+  let dl = '';
+  if(opt.val != null && opt.prev != null){
+    const d = opt.val - opt.prev, s = d > 0 ? '+' : d < 0 ? '−' : '';
+    dl = `<span class="fn-delta">${s}${fnN1(Math.abs(d))}${opt.pp ? ' p.p.' : ''} vs ${opt.prevLab}</span>`;
+  } else if(opt.prevLab !== undefined && opt.val != null) dl = `<span class="fn-delta">Sem histórico para comparar</span>`;
+  return `<div class="fn-kpi"><span class="t">${t}</span><span class="v">${v}</span><span class="m">${opt.metaTxt || ''}</span>${st}${dl}${opt.sub ? `<span class="m">${opt.sub}</span>` : ''}</div>`;
+}
+function fnPainel(){
+  const all = fnRows();
+  const base = all.filter(r => r.base === fnF.base);
+  const sdrs = [...new Set(base.map(r => r.sdr))].sort(), equipes = [...new Set(base.map(r => r.equipe).filter(Boolean))].sort();
+  const scope = fnScope(all);
+  const meses = [...new Set(scope.map(r => r.mes))].sort();
+  const filtros = `<div class="fn-filters">
+    <label class="fn-f">SDR<select class="fn-sel" data-ff="sdr"><option value="todos">Todos</option>${sdrs.map(s => `<option value="${fnE(s)}" ${fnF.sdr === s ? 'selected' : ''}>${fnE(s)}</option>`).join('')}</select></label>
+    <label class="fn-f">Equipe<select class="fn-sel" data-ff="equipe"><option value="todas">Todas</option>${equipes.map(s => `<option value="${fnE(s)}" ${fnF.equipe === s ? 'selected' : ''}>${fnE(s)}</option>`).join('')}</select></label>
+    <label class="fn-f">Período<select class="fn-sel" data-ff="per">${meses.length ? [...meses].reverse().map(m => `<option value="m:${m}">${fnMesLab(m)}</option>`).join('') + '<option value="3m">Últimos 3 meses</option><option value="tudo">Todo o histórico</option>' : '<option value="">Sem meses</option>'}</select></label>
+    <label class="fn-f">Base de cálculo<select class="fn-sel" data-ff="base">${Object.entries(FN_BASES).map(([k, t]) => `<option value="${k}" ${fnF.base === k ? 'selected' : ''}>${t}</option>`).join('')}</select></label>
+  </div>
+  <p class="fn-metodo"><b>Metodologia:</b> ${fnF.base === 'entrada'
+    ? 'coorte por data de entrada. Cada mês acompanha os leads que entraram nele até o desfecho das reuniões, mesmo que a reunião aconteça no mês seguinte. É a leitura mais justa da qualidade do SDR.'
+    : 'mês operacional por data da reunião. Agendadas, realizadas, no-shows e vendas contam no mês da reunião; os leads contam no mês em que entraram. Mostra o volume do mês, mas mistura leads de meses diferentes.'}</p>`;
+
+  if(!meses.length) return filtros + `<div class="empty">Nenhum resultado lançado para esta combinação de filtros e base de cálculo.</div>`;
+
+  const P = fnPeriodo(meses);
+  const rows = scope.filter(r => P.win.includes(r.mes));
+  const prevRows = P.prev ? scope.filter(r => P.prev.includes(r.mes)) : [];
+  const s = fnAgg(rows), tx = fnTaxas(s), m = fnMetas(fnF.sdr);
+  const ps = prevRows.length ? fnTaxas(fnAgg(prevRows)) : null;
+  const proj = fnProj(s.leads, m);
+  const finalMeta = fnProj(100, m).convFinal, lrMeta = fnProj(100, m).convLR;
+  const cmp = k => ({prev: ps ? ps[k] : null, prevLab: P.prev ? P.prevLab : undefined, pp: true});
+
+  const kpis = `<div class="fn-kpis">
+    ${fnKpi('Leads', fnInt(s.leads), null, {metaTxt:'Leads recebidos no período, a base do funil'})}
+    ${fnKpi('Taxa de agendamento', fnP1(tx.agend) + fnNum(s.agendadas, s.leads), m.agend, {val:tx.agend, metaTxt:`Meta ${fnP1(m.agend)}`, ...cmp('agend')})}
+    ${fnKpi('Taxa de comparecimento', fnP1(tx.comp) + fnNum(s.realizadas, s.agendadas), m.comp, {val:tx.comp, metaTxt:`Meta ${fnP1(m.comp)}`, ...cmp('comp')})}
+    ${fnKpi('Taxa de não realização', fnP1(tx.naoReal) + fnNum(s.agendadas - s.realizadas, s.agendadas), m.noshow, {val:tx.naoReal, max:true, metaTxt:`Limite ${fnP1(m.noshow)} · complemento do comparecimento`, sub:`No-show ${fnP1(tx.noshow)} · canceladas ${fnP1(tx.cancel)}`, ...cmp('naoReal')})}
+    ${fnKpi('Conversão em vendas', fnP1(tx.conv) + fnNum(s.vendas, s.realizadas), m.conv, {val:tx.conv, metaTxt:`Meta ${fnP1(m.conv)} das realizadas`, ...cmp('conv')})}
+    ${fnKpi('Leads → realizadas', fnP1(tx.convLR) + fnNum(s.realizadas, s.leads), lrMeta, {val:tx.convLR, metaTxt:`Meta ${fnP1(lrMeta)}`, ...cmp('convLR')})}
+    ${fnKpi('Conversão final', fnP1(tx.final) + fnNum(s.vendas, s.leads), finalMeta, {val:tx.final, metaTxt:`Meta ${fnP1(finalMeta)} · vendas ÷ leads`, ...cmp('final')})}
+    ${fnKpi('Vendas', fnInt(s.vendas), proj.vendas, {val:s.vendas, metaTxt:`Esperadas pela meta: ${fnN1(proj.vendas)}`})}
+  </div>`;
+
+  const pend = s.pendentes > 0 ? `<div class="pend fn-pend"><b>Resultado provisório:</b> ${fnInt(s.pendentes)} ${s.pendentes === 1 ? 'reunião ainda está pendente' : 'reuniões ainda estão pendentes'}. Comparecimento, não realização e conversões podem mudar quando elas acontecerem.</div>` : '';
+
+  const funil = `<div class="fn-card"><div class="fn-ch"><div><h3>Funil real · ${P.lab}</h3><p class="sub">${fnF.sdr === 'todos' ? 'Todos os SDRs' : fnE(fnF.sdr)}${fnF.equipe !== 'todas' ? ' · ' + fnE(fnF.equipe) : ''} · números inteiros, como aconteceram. Abaixo de cada etapa, a meta para o mesmo volume de leads.</p></div></div>
+    ${fnFunnel([
+      {k:'Leads', v:s.leads, txt:fnInt(s.leads)},
+      {k:'Agendadas', v:s.agendadas, txt:fnInt(s.agendadas), meta:`meta ${fnN1(proj.agendadas)}`, conv:`<b>${fnP1(tx.agend)}</b><span class="fn-n">${fnInt(s.agendadas)} de ${fnInt(s.leads)} leads</span>`,
+        leak:`<span class="fn-chip">No-show <b>${fnInt(s.noshow)}</b> · ${fnP1(tx.noshow)}</span><span class="fn-chip">Canceladas <b>${fnInt(s.canceladas)}</b> · ${fnP1(tx.cancel)}</span>${s.pendentes ? `<span class="fn-chip">Pendentes <b>${fnInt(s.pendentes)}</b></span>` : ''}<span class="fn-chip ghost">Reagendadas <b>${fnInt(s.reagendadas)}</b> · informativo</span>`},
+      {k:'Realizadas', v:s.realizadas, txt:fnInt(s.realizadas), meta:`meta ${fnN1(proj.realizadas)}`, conv:`<b>${fnP1(tx.comp)}</b><span class="fn-n">${fnInt(s.realizadas)} de ${fnInt(s.agendadas)} agendadas</span>`},
+      {k:'Vendas', v:s.vendas, txt:fnInt(s.vendas), meta:`meta ${fnN1(proj.vendas)}`, conv:`<b>${fnP1(tx.conv)}</b><span class="fn-n">${fnInt(s.vendas)} de ${fnInt(s.realizadas)} realizadas</span>`}
+    ])}</div>`;
+
+  /* Série mensal: todos os meses do escopo, para comparar com o histórico. */
+  const SER = {agend:['Taxa de agendamento', 'agendadas', 'leads', 'agend'], comp:['Taxa de comparecimento', 'realizadas', 'agendadas', 'comp'], final:['Conversão final', 'vendas', 'leads', null]};
+  const sd = SER[fnF.serie] || SER.agend;
+  const pts = meses.map(mm => { const a = fnAgg(scope.filter(r => r.mes === mm)); return {l:fnMesLab(mm), v:fnRate(a[sd[1]], a[sd[2]]), n:a[sd[1]], d:a[sd[2]], sel:P.win.includes(mm)}; });
+  const metaSerie = sd[3] ? m[sd[3]] : finalMeta;
+  const serie = `<div class="fn-card"><div class="fn-ch"><div><h3>${sd[0]} mês a mês</h3><p class="sub">Linha tracejada: meta de ${fnP1(metaSerie)}. Pontos cheios: período selecionado.</p></div>
+    <div class="chips fn-mini" role="group" aria-label="Indicador da série">${Object.entries(SER).map(([k, v]) => `<button type="button" class="chip ${fnF.serie === k ? 'on' : ''}" data-fserie="${k}" aria-pressed="${fnF.serie === k}">${v[0].replace('Taxa de ', '').replace(/^./, c => c.toUpperCase())}</button>`).join('')}</div></div>
+    <div class="fn-serie" id="fn-serie" data-pts="${fnE(JSON.stringify(pts))}" data-meta="${metaSerie}" data-nome="${fnE(sd[0])}" data-num="${sd[1]}" data-den="${sd[2]}"></div>
+    <details class="fn-tabview"><summary>Ver em tabela</summary><div class="tbl-wrap"><table><thead><tr><th>Mês</th><th>${sd[0]}</th><th>${sd[1]}</th><th>${sd[2]}</th></tr></thead><tbody>${pts.map(p => `<tr><td>${p.l}</td><td>${fnP1(p.v)}</td><td>${fnInt(p.n)}</td><td>${fnInt(p.d)}</td></tr>`).join('')}</tbody></table></div></details></div>`;
+
+  /* Ranking e alertas por SDR. */
+  const porSdr = [...new Set(rows.map(r => r.sdr))].map(nome => {
+    const rr = rows.filter(r => r.sdr === nome), a = fnAgg(rr), t = fnTaxas(a), mm = fnMetas(nome);
+    const eq = [...new Set(rr.map(r => r.equipe).filter(Boolean))].join(', ');
+    const al = []; if(t.agend != null && t.agend < mm.agend) al.push('agendamento'); if(t.comp != null && t.comp < mm.comp) al.push('comparecimento');
+    return {nome, eq, a, t, mm, al};
+  });
+  const ordKey = {agend:'agend', comp:'comp', final:'final'}[fnF.ord] || 'final';
+  porSdr.sort((x, y) => (y.t[ordKey] ?? -1) - (x.t[ordKey] ?? -1) || x.nome.localeCompare(y.nome));
+  const alertas = porSdr.filter(x => x.al.length);
+  const alertBox = alertas.length ? `<div class="fn-alerts">${alertas.map(x => `<div class="fn-alert"><span class="alert" aria-hidden="true">!</span><div><b>${fnE(x.nome)}</b> abaixo da meta de ${x.al.join(' e ')}: ${x.al.map(k => k === 'agendamento' ? `agendamento ${fnP1(x.t.agend)} (meta ${fnP1(x.mm.agend)})` : `comparecimento ${fnP1(x.t.comp)} (meta ${fnP1(x.mm.comp)})`).join(' · ')}</div></div>`).join('')}</div>` : `<p class="fn-okmsg">✓ Nenhum SDR abaixo da meta de agendamento ou de comparecimento em ${P.lab}.</p>`;
+  const tabela = `<div class="fn-card"><div class="fn-ch"><div><h3>Ranking dos SDRs · ${P.lab}</h3><p class="sub">Cada SDR é comparado com as próprias metas. Taxas sem base aparecem como N/D e ficam no fim.</p></div>
+    <div class="chips fn-mini" role="group" aria-label="Ordenar ranking por">${[['final', 'Conversão final'], ['agend', 'Agendamento'], ['comp', 'Comparecimento']].map(([k, t]) => `<button type="button" class="chip ${ordKey === k ? 'on' : ''}" data-ford="${k}" aria-pressed="${ordKey === k}">${t}</button>`).join('')}</div></div>
+    ${alertBox}
+    <div class="tbl-wrap fn-tbl"><table><thead><tr><th>#</th><th>SDR</th><th>Leads</th><th>Agend.</th><th>Realiz.</th><th>No-show</th><th>Cancel.</th><th>Vendas</th><th title="Taxa de agendamento">% agend.</th><th title="Taxa de comparecimento">% comp.</th><th title="Taxa de não realização">% não real.</th><th title="Conversão final">% final</th><th>Situação</th></tr></thead><tbody>
+    ${porSdr.map((x, i) => `<tr><td>${i + 1}</td><td><b style="font-weight:500">${fnE(x.nome)}</b>${x.eq ? `<br><small class="fn-eq">${fnE(x.eq)}</small>` : ''}</td><td>${fnInt(x.a.leads)}</td><td>${fnInt(x.a.agendadas)}</td><td>${fnInt(x.a.realizadas)}</td><td>${fnInt(x.a.noshow)}</td><td>${fnInt(x.a.canceladas)}</td><td>${fnInt(x.a.vendas)}</td><td>${fnP1(x.t.agend)}<br>${fnNum(x.a.agendadas, x.a.leads)}</td><td>${fnP1(x.t.comp)}<br>${fnNum(x.a.realizadas, x.a.agendadas)}</td><td>${fnP1(x.t.naoReal)}<br>${fnNum(x.a.agendadas - x.a.realizadas, x.a.agendadas)}</td><td>${fnP1(x.t.final)}<br>${fnNum(x.a.vendas, x.a.leads)}</td><td>${x.t.agend == null ? '<span class="fn-flag">Sem base</span>' : x.al.length ? `<span class="fn-flag bad" title="Abaixo da meta de ${x.al.join(' e ')}">▼ ${x.al.map(k=>k==='agendamento'?'Agend.':'Comp.').join(' · ')}</span>` : '<span class="fn-flag ok">✓ Na meta</span>'}</td></tr>`).join('')}
+    </tbody></table></div></div>`;
+
+  return filtros + kpis + pend + funil + serie + tabela;
+}
+
+/* ---------- Metas e lançamentos (só quem edita) ---------- */
+function fnMetasHTML(){
+  const sdrs = [...new Set(fnRows().map(r => r.sdr))].sort();
+  const linhas = [['Padrão do time', 'global'], ...sdrs.map(s => [s, 'sdr-' + fnSlug(s)])];
+  const tabela = `<div class="tbl-wrap"><table><thead><tr><th>Aplicada a</th><th>Agendamento</th><th>Comparecimento</th><th>Limite de não realização</th><th>Conversão em vendas</th><th>Conversão final</th></tr></thead><tbody>${linhas.map(([n, id]) => {
+    const m = id === 'global' ? fnMetas() : fnMetas(n), own = !!FMETAS[id], pr = fnProj(FN_BASE_REF, m);
+    return `<tr><td><b style="font-weight:500">${fnE(n)}</b>${id !== 'global' && !own ? '<br><small class="fn-eq">usa o padrão</small>' : ''}</td><td>${fnP1(m.agend)}<br>${fnNum(pr.agendadas, FN_BASE_REF, fnN1)}</td><td>${fnP1(m.comp)}<br>${fnNum(pr.realizadas, pr.agendadas, fnN1)}</td><td>${fnP1(m.noshow)}<br>${fnNum(pr.agendadas - pr.realizadas, pr.agendadas, fnN1)}</td><td>${fnP1(m.conv)}<br>${fnNum(pr.vendas, pr.realizadas, fnN1)}</td><td>${fnP1(pr.convFinal)}<br>${fnNum(pr.vendas, FN_BASE_REF, fnN1)}</td></tr>`;
+  }).join('')}</tbody></table></div>`;
+  if(!CAN_EDIT || fnDemo || !DB) return tabela;
+  return tabela + `<details class="fn-box"><summary>Editar metas</summary><form class="fn-metaform" id="fn-metaform">
+    <label class="fn-f">Aplicar a<select class="fn-sel" name="alvo"><option value="global">Padrão do time</option>${sdrs.map(s => `<option value="${fnE(s)}">${fnE(s)}</option>`).join('')}</select></label>
+    ${[['agend', 'Agendamento %', .5], ['comp', 'Comparecimento %', .5], ['noshow', 'Limite de não realização %', .5], ['conv', 'Conversão em vendas %', .5]].map(([k, t, st]) => `<label class="fn-f">${t}<input class="fn-num" type="number" min="0" max="100" step="${st}" name="${k}" value="${fnMetas()[k]}" required></label>`).join('')}
+    <div class="fn-actions"><button class="btn fill" type="submit">Salvar metas</button><button class="btn line" type="button" id="fn-meta-del">Voltar ao padrão</button></div>
+  </form></details>`;
+}
+function fnFormHTML(){
+  if(fnDemo) return '';
+  if(!DB) return `<p class="fn-metodo">Os resultados são lançados pela gestão na versão do painel dentro do Claude.</p>`;
+  if(!CAN_EDIT) return `<p class="fn-metodo">Os resultados são lançados pela gestão. Você vê aqui o que já foi lançado.</p>`;
+  const r = fnEditing || {sdr:'', equipe:'', mes:new Date().getFullYear() + '-' + String(new Date().getMonth() + 1).padStart(2, '0'), base:fnF.base, leads:'', agendadas:'', realizadas:'', noshow:'', canceladas:'', reagendadas:0, pendentes:0, vendas:''};
+  const sdrs = [...new Set(FN.map(x => x.sdr))].sort(), eqs = [...new Set(FN.map(x => x.equipe).filter(Boolean))].sort();
+  const num = (k, t, h) => `<label class="fn-f">${t}<input class="fn-num" type="number" min="0" step="1" name="${k}" value="${r[k]}" required>${h ? `<small>${h}</small>` : ''}</label>`;
+  const lista = [...FN].sort((a, b) => b.mes.localeCompare(a.mes) || a.sdr.localeCompare(b.sdr));
+  return `<form class="fn-form" id="fn-form" novalidate>
+    <div class="fn-grid">
+      <label class="fn-f">SDR<input class="fn-in" name="sdr" list="fn-dl-sdr" value="${fnE(r.sdr)}" required maxlength="60"></label>
+      <label class="fn-f">Equipe<input class="fn-in" name="equipe" list="fn-dl-eq" value="${fnE(r.equipe)}" maxlength="60"></label>
+      <label class="fn-f">Mês<input class="fn-in" type="month" name="mes" value="${r.mes}" required></label>
+      <label class="fn-f">Base de cálculo<select class="fn-sel" name="base">${Object.entries(FN_BASES).map(([k, t]) => `<option value="${k}" ${r.base === k ? 'selected' : ''}>${t}</option>`).join('')}</select></label>
+    </div>
+    <datalist id="fn-dl-sdr">${sdrs.map(s => `<option value="${fnE(s)}">`).join('')}</datalist><datalist id="fn-dl-eq">${eqs.map(s => `<option value="${fnE(s)}">`).join('')}</datalist>
+    <div class="fn-grid">
+      ${num('leads', 'Leads recebidos')}${num('agendadas', 'Reuniões agendadas', 'Cada reunião conta uma vez, mesmo se reagendada')}
+    </div>
+    <p class="fn-legend">Desfecho de cada reunião agendada. A soma precisa bater com as agendadas.</p>
+    <div class="fn-grid">
+      ${num('realizadas', 'Realizadas')}${num('noshow', 'No-show', 'Não apareceu sem avisar')}${num('canceladas', 'Canceladas', 'Avisou e não remarcou')}${num('pendentes', 'Pendentes', 'Ainda vai acontecer')}
+    </div>
+    <div class="fn-grid">
+      ${num('vendas', 'Vendas', 'Das reuniões realizadas')}${num('reagendadas', 'Reagendadas', 'Informativo: já estão no desfecho final')}
+    </div>
+    <div class="fn-err" id="fn-err" role="alert"></div>
+    <div class="fn-actions"><button class="btn fill" type="submit">${fnEditing ? 'Salvar alterações' : 'Salvar resultado'}</button>${fnEditing ? '<button class="btn line" type="button" id="fn-cancel">Cancelar edição</button>' : ''}</div>
+    <p class="fn-legend">SDR, mês e base formam a chave: lançar de novo a mesma combinação substitui o resultado anterior.</p>
+  </form>
+  ${lista.length ? `<div class="tbl-wrap fn-tbl" style="margin-top:14px"><table><thead><tr><th>Mês</th><th>SDR</th><th>Base</th><th>Leads</th><th>Agendadas</th><th>Realizadas</th><th>No-show</th><th>Canceladas</th><th>Pendentes</th><th>Vendas</th><th></th></tr></thead><tbody>${lista.map(x => `<tr><td>${fnMesLab(x.mes)}</td><td>${fnE(x.sdr)}</td><td>${x.base === 'entrada' ? 'Entrada' : 'Reunião'}</td><td>${x.leads}</td><td>${x.agendadas}</td><td>${x.realizadas}</td><td>${x.noshow}</td><td>${x.canceladas}</td><td>${x.pendentes}</td><td>${x.vendas}</td><td><button type="button" class="copy" data-fedit="${fnE(x.id)}">Editar</button> <button type="button" class="copy" data-fdel="${fnE(x.id)}">Excluir</button></td></tr>`).join('')}</tbody></table></div>` : ''}`;
+}
+
+/* ---------- Fórmulas ---------- */
+function fnDocHTML(){
+  const p = fnProj(100, FN_META);
+  const ex = x => x.toLocaleString('pt-BR', {maximumFractionDigits:6});
+  return `<div class="team-grid fn-docs">
+    <article class="team-card"><span class="eyebrow">Fórmulas</span><ul class="mot-kv">
+      <li><span>Taxa de agendamento</span><b>agendadas ÷ leads × 100</b></li>
+      <li><span>Taxa de comparecimento</span><b>realizadas ÷ agendadas × 100</b></li>
+      <li><span>Taxa de no-show</span><b>no-shows ÷ agendadas × 100</b></li>
+      <li><span>Taxa de não realização</span><b>(agendadas − realizadas) ÷ agendadas × 100</b></li>
+      <li><span>Conversão em vendas</span><b>vendas ÷ realizadas × 100</b></li>
+      <li><span>Leads → realizadas</span><b>realizadas ÷ leads × 100</b></li>
+      <li><span>Conversão final</span><b>vendas ÷ leads × 100</b></li>
+      <li><span>Denominador zero</span><b>N/D, nunca 0%</b></li>
+    </ul></article>
+    <article class="team-card"><span class="eyebrow">Cenário de referência · 100 leads</span><ul class="mot-kv">
+      <li><span>Leads</span><b>${ex(p.leads)}</b></li>
+      <li><span>Agendadas (31%)</span><b>${ex(p.agendadas)} → exibe ${fnN1(p.agendadas)}</b></li>
+      <li><span>Realizadas (65%)</span><b>${ex(p.realizadas)} → exibe ${fnN1(p.realizadas)}</b></li>
+      <li><span>No-shows (35%)</span><b>${ex(p.noshow)} → exibe ${fnN1(p.noshow)}</b></li>
+      <li><span>Vendas (20%)</span><b>${ex(p.vendas)} → exibe ${fnN1(p.vendas)}</b></li>
+      <li><span>Conversão final</span><b>${ex(p.convFinal)}% → exibe ${fnP1(p.convFinal)}</b></li>
+    </ul><p class="team-d" style="margin-top:8px">Nenhum valor intermediário é arredondado. Projeções aparecem com 1 casa decimal; resultados reais, em números inteiros.</p></article>
+    <article class="team-card"><span class="eyebrow">No-show, cancelamento e reagendamento</span><ul class="crit">
+      <li><b>No-show:</b> o lead não apareceu e não avisou.</li>
+      <li><b>Cancelada:</b> o lead avisou e não remarcou. Não entra no no-show.</li>
+      <li><b>Pendente:</b> a reunião ainda vai acontecer. Não é no-show; enquanto houver pendentes, as taxas são provisórias.</li>
+      <li><b>Reagendada:</b> não vira um novo agendamento. A reunião conta uma vez, pelo desfecho final, e o reagendamento é registrado à parte, só como informação.</li>
+      <li>Realizadas + no-show + canceladas + pendentes = agendadas.</li>
+    </ul></article>
+    <article class="team-card"><span class="eyebrow">Por que existe a taxa de não realização</span><ul class="crit">
+      <li>A meta de 65% de comparecimento tem como complemento 35% de reuniões que não acontecem.</li>
+      <li>Esses 35% incluem no-shows e cancelamentos. Por isso o painel mostra a <b>taxa de não realização</b> ao lado do no-show puro: é ela que se compara com o limite de 35%.</li>
+      <li><b>Base por entrada do lead:</b> coorte, leitura da qualidade do SDR.</li>
+      <li><b>Base por data da reunião:</b> mês operacional, leitura de volume.</li>
+    </ul></article>
+  </div>`;
+}
+
+/* Painel real, modo demonstração e lançamento de resultados ficam em desenvolvimento até a validação com o time.
+   Para liberar, troque FN_DEV para false: o código continua pronto. */
+const FN_DEV = true;
+function viewFunil(){
+  if(FN_DEV) fnDemo = false;
+  const loading = !fnDemo && FN_STATE === 'loading';
+  const temDados = fnRows().length > 0;
+  const nav = `<div class="sdr-nav">${[['Calculadora', 'fn-0'], ['Painel', 'fn-1'], ['Metas', 'fn-2'], ...(!FN_DEV && CAN_EDIT && DB && !fnDemo ? [['Lançar resultados', 'fn-3']] : [])].map(([t, id]) => `<a href="#sdr" data-jump="${id}" class="chip">${t}</a>`).join('')}</div>`;
+  const demo = fnDemo ? `<div class="fn-demo" role="status"><div><b>Modo demonstração</b><span>Dados fictícios, gerados só para mostrar o painel. Nada aqui é resultado real e nada é salvo.</span></div><button type="button" class="btn line" data-fdemo="0">Sair da demonstração</button></div>` : '';
+  let painel;
+  if(FN_DEV) painel = `<div class="empty fn-empty fn-dev"><span class="fn-tag">Em desenvolvimento</span><b>O painel com os resultados reais está em validação.</b><p>Ranking, alertas por SDR, comparação com o histórico e o lançamento dos resultados entram depois que a gestão bater os números com o time. Por enquanto, use a calculadora e as metas.</p></div>`;
+  else if(loading) painel = `<div class="empty">Carregando os resultados lançados…</div>`;
+  else if(!temDados) painel = `<div class="empty fn-empty"><b>Ainda não há resultados lançados.</b><p>${FN_STATE === 'timeout' || FN_STATE === 'erro' ? 'Não foi possível carregar os resultados agora. ' : ''}O painel mostra apenas resultados reais. Para ver como ele funciona, abra o modo demonstração, com dados fictícios identificados.</p><div class="fn-actions" style="justify-content:center"><button type="button" class="btn fill" data-fdemo="1">Ver modo demonstração</button>${CAN_EDIT && DB ? '<a href="#sdr" class="btn line" data-jump="fn-3">Lançar o primeiro resultado</a>' : ''}</div></div>`;
+  else painel = fnPainel() + (!fnDemo ? `<p class="fn-metodo" style="margin-top:12px">Quer ver o painel com mais meses? <button type="button" class="lnk" data-fdemo="1">Abrir modo demonstração</button></p>` : '');
+  return `${demo}${nav}
+  <h3 class="sec-title" id="fn-0">Calculadora do funil</h3>
+  <p class="sec-sub">Mexa nos leads e nas taxas e veja o funil projetado na hora. Para saber quantos leads um SDR precisa receber, troque para “Quero X vendas”.</p>
+  ${fnCalcHTML()}
+  <h3 class="sec-title" id="fn-1">Painel do funil${fnDemo ? ' <span class="fn-tag">demonstração</span>' : ''}</h3>
+  <p class="sec-sub">Resultado real separado da projeção. Filtre por SDR, equipe e período.</p>
+  ${painel}
+  <h3 class="sec-title" id="fn-2">Metas</h3>
+  <p class="sec-sub">As metas são de taxa, não de volume: não existe meta de leads atendidos. Os números em cinza mostram cada taxa aplicada a uma base de referência de 100 leads, só para facilitar a conta. O padrão vale para todo SDR; uma meta própria substitui o padrão só para aquele SDR.</p>
+  ${fnMetasHTML()}
+  ${FN_DEV ? '' : CAN_EDIT && DB && !fnDemo ? `<h3 class="sec-title" id="fn-3">Lançar resultados</h3><p class="sec-sub">Um lançamento por SDR, mês e base de cálculo. Só a gestão vê este formulário.</p>${fnFormHTML()}` : fnFormHTML()}`;
+}
+
+/* ---------- Série (SVG desenhado com a largura real do container) ---------- */
+function fnDrawSerie(){
+  const box = document.getElementById('fn-serie'); if(!box) return;
+  let pts; try{ pts = JSON.parse(box.dataset.pts); }catch(_){ return; }
+  const meta = +box.dataset.meta, W = Math.max(box.clientWidth, 260), H = 230, pl = 44, pr = 18, pt = 18, pb = 30;
+  const vals = pts.map(p => p.v).filter(v => v != null).concat(meta);
+  const raw = Math.max(...vals, 1) * 1.15;
+  const step = [1, 2, 5, 10, 20, 25, 50].find(s => raw / s <= 5) || 25, max = Math.ceil(raw / step) * step;
+  const x = i => pts.length === 1 ? pl + (W - pl - pr) / 2 : pl + i * (W - pl - pr) / (pts.length - 1);
+  const y = v => pt + (1 - v / max) * (H - pt - pb);
+  let g = '';
+  for(let v = 0; v <= max + 1e-9; v += step) g += `<line x1="${pl}" x2="${W - pr}" y1="${y(v)}" y2="${y(v)}" class="fn-grid-l"/><text x="${pl - 8}" y="${y(v) + 4}" text-anchor="end" class="fn-ax">${v.toLocaleString('pt-BR')}%</text>`;
+  pts.forEach((p, i) => { g += `<text x="${x(i)}" y="${H - 8}" text-anchor="middle" class="fn-ax">${p.l}</text>`; });
+  g += `<line x1="${pl}" x2="${W - pr}" y1="${y(meta)}" y2="${y(meta)}" class="fn-meta-l"/><text x="${W - pr}" y="${y(meta) - 6}" text-anchor="end" class="fn-ax fn-meta-t">Meta ${fnP1(meta)}</text>`;
+  let d = '', pen = false;
+  pts.forEach((p, i) => { if(p.v == null){ pen = false; return; } d += (pen ? 'L' : 'M') + x(i) + ' ' + y(p.v); pen = true; });
+  g += `<path d="${d}" class="fn-line"/>`;
+  pts.forEach((p, i) => { if(p.v != null) g += `<circle cx="${x(i)}" cy="${y(p.v)}" r="${p.sel ? 6 : 4.5}" class="fn-pt ${p.sel ? 'sel' : ''}"/>`; });
+  box.innerHTML = `<svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="${fnE(box.dataset.nome)} por mês">${g}<line class="fn-cross" x1="0" x2="0" y1="${pt}" y2="${H - pb}" style="display:none"/></svg><div class="fn-tip" hidden></div>`;
+  const svg = box.querySelector('svg'), tip = box.querySelector('.fn-tip'), cross = box.querySelector('.fn-cross');
+  const num = box.dataset.num, den = box.dataset.den;
+  const show = cx => {
+    let bi = 0, bd = 1e9; pts.forEach((p, i) => { const dd = Math.abs(x(i) - cx); if(dd < bd){ bd = dd; bi = i; } });
+    const p = pts[bi];
+    cross.setAttribute('x1', x(bi)); cross.setAttribute('x2', x(bi)); cross.style.display = '';
+    tip.hidden = false; tip.innerHTML = `<b>${p.l}</b><span>${fnP1(p.v)}</span><small>${fnInt(p.n)} ${num} de ${fnInt(p.d)} ${den}</small>`;
+    const tw = tip.offsetWidth; tip.style.left = Math.min(Math.max(x(bi) - tw / 2, 0), W - tw) + 'px';
+    tip.style.top = (p.v == null ? pt : Math.max(y(p.v) - tip.offsetHeight - 12, 0)) + 'px';
+  };
+  svg.addEventListener('pointermove', e => show(e.clientX - svg.getBoundingClientRect().left));
+  svg.addEventListener('pointerleave', () => { tip.hidden = true; cross.style.display = 'none'; });
+}
+let fnRz; window.addEventListener('resize', () => { clearTimeout(fnRz); fnRz = setTimeout(fnDrawSerie, 150); });
+
+function bindFunil(){
+  document.querySelectorAll('[data-fdemo]').forEach(b => b.onclick = () => { fnDemo = b.dataset.fdemo === '1'; fnF = {...fnF, sdr:'todos', equipe:'todas', per:''}; paint(true); const t = document.getElementById('fn-1'); if(t) t.scrollIntoView({block:'start'}); });
+  document.querySelectorAll('[data-ff]').forEach(s => { if(s.dataset.ff === 'per'){ const meses = [...new Set(fnScope(fnRows()).map(r => r.mes))].sort(); if(meses.length) s.value = fnPeriodo(meses).per; } s.onchange = () => { fnF = {...fnF, [s.dataset.ff]:s.value}; if(s.dataset.ff === 'base') fnF.per = ''; paint(true); }; });
+  document.querySelectorAll('[data-ford]').forEach(b => b.onclick = () => { fnF.ord = b.dataset.ford; paint(true); });
+  document.querySelectorAll('[data-fserie]').forEach(b => b.onclick = () => { fnF.serie = b.dataset.fserie; paint(true); });
+  /* Calculadora: atualiza só o resultado, sem redesenhar a página. */
+  const out = document.getElementById('fc-out');
+  const sync = (k, v, from) => { document.querySelectorAll(`[data-fc="${k}"]`).forEach(el => { if(el !== from) el.value = v; }); };
+  document.querySelectorAll('[data-fc]').forEach(el => el.addEventListener('input', () => {
+    const k = el.dataset.fc; let v = parseFloat(String(el.value).replace(',', '.'));
+    if(!isFinite(v) || v < 0) v = 0; if(k !== 'leads' && k !== 'alvo') v = Math.min(v, 100);
+    fnCalc[k] = v; sync(k, v, el); out.innerHTML = fnCalcOut();
+  }));
+  document.querySelectorAll('[data-fcmodo]').forEach(b => b.onclick = () => { fnCalc.modo = b.dataset.fcmodo; paint(true); });
+  const ref = document.getElementById('fc-ref');
+  const aplicar = () => { const m = fnMetas(fnCalc.ref === 'global' ? null : fnCalc.ref); ['agend', 'comp', 'conv'].forEach(k => { fnCalc[k] = m[k]; sync(k, m[k]); }); out.innerHTML = fnCalcOut(); };
+  if(ref){ ref.onchange = () => { fnCalc.ref = ref.value; aplicar(); }; }
+  const rs = document.getElementById('fc-reset'); if(rs) rs.onclick = aplicar;
+  fnDrawSerie();
+
+  /* Metas */
+  const mf = document.getElementById('fn-metaform');
+  if(mf){
+    const fill = () => { const alvo = mf.alvo.value, m = fnMetas(alvo === 'global' ? null : alvo); Object.keys(FN_META).forEach(k => mf[k].value = m[k]); };
+    mf.alvo.onchange = fill;
+    mf.onsubmit = async e => { e.preventDefault();
+      const v = {}; for(const k of Object.keys(FN_META)){ const n = parseFloat(mf[k].value); if(!isFinite(n) || n < 0 || n > 100){ toast('Confira os valores das metas'); return; } v[k] = n; }
+      const id = mf.alvo.value === 'global' ? 'global' : 'sdr-' + fnSlug(mf.alvo.value);
+      try{ await DB.collection('funil_metas').doc(id).set({...v, em:Date.now()}); toast('Metas salvas'); }catch(_){ toast('Não foi possível salvar. Tente de novo.'); } };
+    document.getElementById('fn-meta-del').onclick = async () => {
+      const id = mf.alvo.value === 'global' ? 'global' : 'sdr-' + fnSlug(mf.alvo.value);
+      if(!FMETAS[id]){ toast('Já está no padrão'); return; }
+      try{ await DB.collection('funil_metas').doc(id).delete(); toast(id === 'global' ? 'Metas do time voltaram ao padrão' : 'Este SDR voltou a usar o padrão do time'); }catch(_){ toast('Não foi possível salvar. Tente de novo.'); } };
+  }
+  /* Lançamentos */
+  const f = document.getElementById('fn-form');
+  if(f){
+    f.onsubmit = async e => { e.preventDefault();
+      const r = {sdr:f.sdr.value.trim(), equipe:f.equipe.value.trim(), mes:f.mes.value, base:f.base.value};
+      FN_CAMPOS.forEach(k => { const t = String(f[k].value).trim(); r[k] = t === '' ? NaN : Number(t); });
+      const errs = []; if(!r.sdr) errs.push('Informe o SDR.'); if(!/^\d{4}-\d{2}$/.test(r.mes)) errs.push('Informe o mês.');
+      errs.push(...fnCheck(r));
+      const box = document.getElementById('fn-err');
+      if(errs.length){ box.innerHTML = errs.map(x => `<p>${fnE(x)}</p>`).join(''); return; }
+      box.innerHTML = '';
+      const id = fnSlug(r.sdr) + '_' + r.mes + '_' + r.base;
+      try{
+        if(fnEditing && fnEditing.id !== id) await DB.collection('funil').doc(fnEditing.id).delete();
+        await DB.collection('funil').doc(id).set({...r, em:Date.now()});
+        fnEditing = null; document.activeElement && document.activeElement.blur(); toast('Resultado salvo'); paint(true);
+      }catch(_){ toast('Não foi possível salvar. Tente de novo.'); }
+    };
+    const c = document.getElementById('fn-cancel'); if(c) c.onclick = () => { fnEditing = null; paint(true); };
+  }
+  document.querySelectorAll('[data-fedit]').forEach(b => b.onclick = () => { const x = FN.find(r => r.id === b.dataset.fedit); if(x){ fnEditing = {...x}; paint(true); const t = document.getElementById('fn-3'); if(t) t.scrollIntoView({block:'start', behavior:'smooth'}); } });
+  document.querySelectorAll('[data-fdel]').forEach(b => b.onclick = async () => {
+    if(b.dataset.armed !== '1'){ b.dataset.armed = '1'; b.textContent = 'Confirmar exclusão'; setTimeout(() => { if(b.isConnected){ b.dataset.armed = ''; b.textContent = 'Excluir'; } }, 3000); return; }
+    try{ await DB.collection('funil').doc(b.dataset.fdel).delete(); toast('Lançamento excluído'); }catch(_){ toast('Não foi possível excluir. Tente de novo.'); }
+  });
+}
+
+/* ======================= PACE DO LANÇAMENTO ======================= */
+let pc = {alvo:50, garantidas:15, data:'2026-12-01', sdrs:1, lag:3, agend:null, comp:null, conv:null};
+const pcTaxas = () => { const m = fnMetas(); return {agend: pc.agend ?? m.agend, comp: pc.comp ?? m.comp, conv: pc.conv ?? m.conv}; };
+const pcCeil = x => Math.ceil(x - 1e-9);
+function pcCalc(){
+  const t = pcTaxas(), [y, mo, d] = pc.data.split('-').map(Number);
+  const dias = Math.max(daysTo(y, mo, d), 0);
+  const janela = Math.max(dias - pc.lag, 1);
+  const faltam = Math.max(pc.alvo - pc.garantidas, 0);
+  const leads = fnLeadsPara(faltam, t);
+  const p = leads == null ? null : fnProj(leads, t);
+  return {t, dias, janela, faltam, leads, p};
+}
+function pcOut(){
+  const c = pcCalc(), sd = Math.max(pc.sdrs, 1);
+  if(c.dias === 0) return `<div class="empty">A data do lançamento já chegou. Ajuste a data para ver o ritmo.</div>`;
+  if(c.faltam === 0) return `<div class="empty fn-empty"><b>Meta batida.</b><p>As vendas garantidas já cobrem a meta de ${fnInt(pc.alvo)} vendas.</p></div>`;
+  if(!c.p) return `<div class="empty">Com alguma taxa em zero, nenhuma quantidade de leads chega à meta. Ajuste as taxas.</div>`;
+  const p = c.p, t = c.t;
+  const kpis = `<div class="fn-kpis">
+    <div class="fn-kpi"><span class="t">Faltam</span><span class="v">${c.dias} ${c.dias === 1 ? 'dia' : 'dias'}</span><span class="m">Até ${fnE(pc.data.split('-').reverse().join('/'))}. Os leads precisam entrar nos próximos ${c.janela} ${c.janela === 1 ? 'dia' : 'dias'}.</span></div>
+    <div class="fn-kpi"><span class="t">Vendas a buscar</span><span class="v">${fnInt(c.faltam)}<span class="fn-n">de ${fnInt(pc.alvo)}</span></span><span class="m">${fnInt(pc.garantidas)} já garantidas</span></div>
+    <div class="fn-kpi"><span class="t">Leads necessários</span><span class="v">${fnInt(pcCeil(c.leads))}</span><span class="m">Conta exata: ${fnN1(c.leads)}</span></div>
+    <div class="fn-kpi"><span class="t">Conversão lead → venda</span><span class="v">${fnP1(p.convFinal)}</span><span class="m">${fnP1(t.agend)} × ${fnP1(t.comp)} × ${fnP1(t.conv)}</span></div>
+  </div>`;
+  const funil = `<div class="fn-card"><div class="fn-ch"><div><h3>O funil que precisamos até o lançamento</h3><p class="sub">Total do time para fechar as ${fnInt(c.faltam)} vendas que faltam.</p></div></div>${fnFunnel([
+    {k:'Leads', v:p.leads, txt:fnN1(p.leads)},
+    {k:'Agendadas', v:p.agendadas, txt:fnN1(p.agendadas), conv:`<b>${fnP1(t.agend)}</b><span class="fn-n">${fnN1(p.agendadas)} de ${fnN1(p.leads)} leads</span>`,
+      leak:`<span class="fn-chip">Podem não acontecer <b>${fnN1(p.noshow)}</b> · ${fnP1(p.taxaNoshow)} <span class="fn-n">de ${fnN1(p.agendadas)} agendadas</span></span>`},
+    {k:'Realizadas', v:p.realizadas, txt:fnN1(p.realizadas), conv:`<b>${fnP1(t.comp)}</b><span class="fn-n">${fnN1(p.realizadas)} de ${fnN1(p.agendadas)} agendadas</span>`},
+    {k:'Vendas', v:p.vendas, txt:fnN1(p.vendas), conv:`<b>${fnP1(t.conv)}</b><span class="fn-n">${fnN1(p.vendas)} de ${fnN1(p.realizadas)} realizadas</span>`}
+  ])}</div>`;
+  const ritmo = (k, total, dias, quem) => {
+    const dia = total / dias, porSdr = dia / sd;
+    return `<div class="pc-r"><span class="t">${k}</span><span class="v">${fnN1(dia)}<small>por dia</small></span><span class="m">Na prática, <b>${fnInt(pcCeil(dia))}</b> por dia${sd > 1 && quem === 'SDR' ? ` · <b>${fnN1(porSdr)}</b> por SDR (${fnInt(pcCeil(porSdr))} na prática)` : ''}</span><span class="m">${fnN1(total)} no total, em ${dias} ${dias === 1 ? 'dia' : 'dias'} · ${quem}</span></div>`;
+  };
+  const ritmos = `<div class="fn-card"><div class="fn-ch"><div><h3>Ritmo diário${sd > 1 ? ` · time de ${sd} SDRs` : ' do time'}</h3><p class="sub">Leads e agendamentos precisam acontecer nos primeiros ${c.janela} ${c.janela === 1 ? 'dia' : 'dias'}, para dar tempo de a reunião acontecer. Reuniões e vendas se espalham pelos ${c.dias} dias.</p></div></div>
+    <div class="pc-grid">
+      ${ritmo('Leads novos', p.leads, c.janela, 'SDR')}
+      ${ritmo('Reuniões agendadas', p.agendadas, c.janela, 'SDR')}
+      ${ritmo('Reuniões realizadas', p.realizadas, c.dias, 'closer')}
+      ${ritmo('Vendas', p.vendas, c.dias, 'closer')}
+    </div></div>`;
+  /* Sensibilidade: leads necessários conforme agendamento e comparecimento. */
+  const ags = [...new Set([25, 31, 35, 40, t.agend])].sort((a, b) => a - b), cps = [...new Set([55, 65, 75, t.comp])].sort((a, b) => a - b);
+  const sens = `<div class="fn-card"><div class="fn-ch"><div><h3>Onde o SDR mais ajuda</h3><p class="sub">Leads necessários para as ${fnInt(c.faltam)} vendas, com conversão em vendas de ${fnP1(t.conv)}. Subir agendamento e comparecimento reduz o volume de leads que precisamos.</p></div></div>
+    <div class="tbl-wrap pc-sens"><table><thead><tr><th>Agendamento</th>${cps.map(v => `<th>Comparecimento ${fnP1(v)}</th>`).join('')}</tr></thead><tbody>${ags.map(a => `<tr><td><b style="font-weight:500">${fnP1(a)}</b></td>${cps.map(cp => { const L = fnLeadsPara(c.faltam, {agend:a, comp:cp, conv:t.conv}); const atual = a === t.agend && cp === t.comp; return `<td class="${atual ? 'pc-atual' : ''}">${L == null ? 'N/D' : fnInt(pcCeil(L)) + ' leads'}<br><span class="fn-n">${L == null ? '' : fnN1(L / c.janela) + ' por dia'}</span></td>`; }).join('')}</tr>`).join('')}</tbody></table></div>
+    <p class="fn-legend" style="margin-top:10px">Destaque: as taxas usadas no ritmo acima.</p></div>`;
+  return kpis + funil + ritmos + sens;
+}
+function viewPace(){
+  const t = pcTaxas();
+  const num = (k, lab, v, opt = '') => `<label class="fn-f">${lab}<input class="fn-num" type="number" data-pc="${k}" value="${v}" ${opt}></label>`;
+  return `<div class="page-head"><div><span class="eyebrow">Lançamento · 1º de dezembro</span><h1>Pace pro <b>lançamento</b></h1><p>Quanto o time precisa gerar por dia, de leads a vendas, para bater a meta do lançamento. Os números se atualizam sozinhos a cada dia.</p></div></div>
+  <div class="fn-card pc-in">
+    <div class="pc-ins">
+      ${num('alvo', 'Meta de vendas', pc.alvo, 'min="0" step="1"')}
+      ${num('garantidas', 'Já garantidas (docs coletadas)', pc.garantidas, 'min="0" step="1"')}
+      <label class="fn-f">Data do lançamento<input class="fn-num" type="date" data-pc="data" value="${pc.data}"></label>
+      ${num('sdrs', 'SDRs no time', pc.sdrs, 'min="1" step="1"')}
+      ${num('lag', 'Dias do lead à reunião', pc.lag, 'min="0" step="1"')}
+    </div>
+    <div class="pc-ins">
+      ${num('agend', 'Agendamento %', t.agend, 'min="0" max="100" step="0.5"')}
+      ${num('comp', 'Comparecimento %', t.comp, 'min="0" max="100" step="0.5"')}
+      ${num('conv', 'Conversão em vendas %', t.conv, 'min="0" max="100" step="0.5"')}
+      <div class="fn-f pc-reset"><span>&nbsp;</span><button type="button" class="lnk" id="pc-reset">Voltar às metas</button></div>
+    </div>
+    <p class="fn-legend">As 15 docs coletadas contam como vendas garantidas. Se ainda não forem venda fechada, troque para 0 e veja o ritmo com a meta cheia.</p>
+  </div>
+  <div id="pc-out" aria-live="polite">${pcOut()}</div>`;
+}
+function bindPace(){
+  const out = document.getElementById('pc-out');
+  document.querySelectorAll('[data-pc]').forEach(el => el.addEventListener('input', () => {
+    const k = el.dataset.pc;
+    if(k === 'data'){ if(/^\d{4}-\d{2}-\d{2}$/.test(el.value)) pc.data = el.value; }
+    else { let v = parseFloat(String(el.value).replace(',', '.')); if(!isFinite(v) || v < 0) v = 0;
+      if(['agend', 'comp', 'conv'].includes(k)) v = Math.min(v, 100);
+      if(['alvo', 'garantidas', 'sdrs', 'lag'].includes(k)) v = Math.floor(v);
+      if(k === 'sdrs') v = Math.max(v, 1);
+      pc[k] = v; }
+    out.innerHTML = pcOut();
+    document.querySelectorAll('#pc-out .tbl-wrap table').forEach(tb => { const hs = [...tb.querySelectorAll('thead th')].map(th => th.textContent.trim()); tb.querySelectorAll('tbody tr').forEach(tr => [...tr.children].forEach((td, i) => td.setAttribute('data-label', hs[i] || ''))); });
+  }));
+  document.getElementById('pc-reset').onclick = () => { pc.agend = pc.comp = pc.conv = null; paint(true); };
+}
+
 const CLOSER_PRONTO = [
   {id:'pontos', t:'Pontos de Vista', d:'Os argumentos de venda, com a fala pronta, a prova e o perfil de cliente.'},
   {id:'objecoes', t:'Matriz de objeções', d:'Medo real, diagnóstico, quebra, prova e próximo passo de cada objeção.'},
@@ -2167,7 +2895,7 @@ function bindIndicacao(){
   document.querySelectorAll('#main [data-jump^="ind-"]').forEach(a=>a.onclick=e=>{e.preventDefault();const t=document.getElementById(a.dataset.jump);if(t)t.scrollIntoView({behavior:'smooth',block:'start'});});
 }
 
-const VIEWS = {inicio:[viewInicio], pontos:[viewPontos,bindPontos], objecoes:[viewObjecoes,bindObjecoes], guerrilha:[viewGuerrilha], reportagens:[viewReportagens,bindReportagens], follow:[viewFollow,bindFollow], indicacao:[viewIndicacao,bindIndicacao], glossario:[viewGlossario,bindGlossario], sdr:[viewSdr,bindSdr], closer:[viewCloser]};
+const VIEWS = {inicio:[viewInicio], pontos:[viewPontos,bindPontos], objecoes:[viewObjecoes,bindObjecoes], guerrilha:[viewGuerrilha], reportagens:[viewReportagens,bindReportagens], follow:[viewFollow,bindFollow], indicacao:[viewIndicacao,bindIndicacao], glossario:[viewGlossario,bindGlossario], sdr:[viewSdr,bindSdr], pace:[viewPace,bindPace], closer:[viewCloser]};
 function currentView(){ const id=(location.hash||'').replace('#',''); return VIEWS[id]?id:'inicio'; }
 function paint(keep){
   const cur=currentView();
