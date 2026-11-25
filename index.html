@@ -95,6 +95,8 @@ button{font:inherit;color:inherit}
 .results .ri{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;flex:none;background:var(--verdeTint);color:var(--verde)}
 .results .none{padding:12px;color:var(--ink2);font-size:.9rem}
 .tb-right{margin-left:auto;display:flex;align-items:center;gap:12px}
+.airbnbbtn{display:inline-flex;align-items:center;gap:8px;height:44px;padding:0 18px;border-radius:999px;background:#E11D2E;color:#fff;font-weight:700;font-size:14px;text-decoration:none;white-space:nowrap;flex:none}.airbnbbtn:hover{background:#C3121F}.airbnbbtn:focus-visible{outline:3px solid #ffb3b9;outline-offset:2px}@media(max-width:600px){.airbnbbtn{padding:0 12px;font-size:13px}}@media(max-width:640px){.airbnbbtn{width:44px;padding:0;font-size:0;justify-content:center;gap:0}.airbnbbtn svg{width:18px;height:18px}}
+
 .roundbtn{width:44px;height:44px;border-radius:50%;background:var(--surface);display:grid;place-items:center;color:var(--ink2);border:0;cursor:pointer;flex:none}
 .who{display:flex;align-items:center;gap:10px}
 .who .av{width:44px;height:44px;border-radius:50%;background:linear-gradient(140deg,var(--caramelo),var(--terra));color:#fff;display:grid;place-items:center;font-weight:700;font-size:.95rem}
@@ -728,6 +730,30 @@ b,strong{font-weight:700}
 .pc-sens td.pc-atual{background:var(--verdeTint);font-weight:500}
 @media (max-width:1180px){.pc-ins,.pc-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:640px){.pc-r .v{font-size:1.9rem}}
+/* Visão geral enxuta */
+.ini-go{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.ini-card{display:flex;flex-direction:column;gap:10px;min-height:250px;padding:28px;border-radius:var(--radius-m) var(--radius-m) 64px 64px;text-decoration:none;color:var(--ink);background:var(--surface);border:1.5px solid var(--line);transition:transform .15s}
+.ini-card:hover{transform:translateY(-3px)}
+.ini-card.p{background:#765DD1;color:#fff;border-color:#765DD1}
+.ini-card.k{background:#0E0E1C;color:#fff;border-color:#0E0E1C}
+:root[data-theme="dark"] .ini-card.k{border-color:var(--line)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .ini-card.k{border-color:var(--line)}}
+.ini-k{display:flex;align-items:center;gap:10px;font-size:.74rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;opacity:.9}
+.ini-k i{font-style:normal;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;letter-spacing:0;font-weight:700;font-size:.9rem;background:rgba(255,255,255,.18)}
+.ini-card.w .ini-k{color:var(--verde)}
+.ini-card.w .ini-k i{background:var(--verdeTint)}
+.ini-card h2{margin:6px 0 0;font-size:clamp(1.6rem,2.4vw,2.1rem);font-weight:300;line-height:1.1;letter-spacing:-.02em}
+.ini-card h2 b{font-weight:700}
+.ini-card p{margin:0;font-size:.95rem;opacity:.88;max-width:34ch}
+.ini-cta{margin-top:auto;align-self:flex-start;display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:11px 20px;font-weight:500;font-size:.92rem;background:#fff;color:#765DD1}
+.ini-card.k .ini-cta{background:#765DD1;color:#fff}
+.ini-card.w .ini-cta{background:#765DD1;color:#fff}
+.ini-more{margin-top:22px;background:var(--surface);border-radius:var(--radius-m);padding:20px 22px}
+.ini-links{display:flex;flex-wrap:wrap;gap:8px}
+.ini-links a{display:inline-flex;align-items:center;gap:8px;padding:9px 15px;border-radius:999px;border:1px solid var(--line);color:var(--ink2);text-decoration:none;font-weight:500;font-size:.9rem}
+.ini-links a:hover{border-color:var(--verde);color:var(--verde)}
+.ini-links svg{width:17px;height:17px}
+@media (max-width:640px){.ini-go{grid-template-columns:1fr}.ini-card{min-height:0;padding:22px;border-radius:var(--radius-m) var(--radius-m) 48px 48px}}
 /* Indicação */
 .ind-panel{display:grid;grid-template-columns:auto 1fr auto;gap:18px;align-items:center;background:radial-gradient(120% 160% at 90% 0%,#9C8BE0 0%,#765DD1 50%,#5B44B0 100%);color:#fff;text-decoration:none;border-radius:var(--radius-m) var(--radius-m) 48px 48px;padding:22px 26px;margin:-4px 0 22px;transition:transform .15s}
 .ind-panel:hover{transform:translateY(-2px)}
@@ -852,6 +878,7 @@ b,strong{font-weight:700}
         <div class="results" id="gres" role="listbox"></div>
       </div>
       <div class="tb-right">
+        <a class="airbnbbtn" href="dados-airbnb.html" title="Diárias de alta temporada em Carneiros (Airbnb)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z"/></svg>Dados do Airbnb</a>
         <button type="button" class="roundbtn" id="introbtn" aria-label="Ver a vinheta de entrada" title="Ver vinheta"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 9c2 0 2-2 4-2s2 2 4 2 2-2 4-2 2 2 4 2 2-2 3-2"/><path d="M2.5 14c2 0 2-2 4-2s2 2 4 2 2-2 4-2 2 2 4 2 2-2 3-2"/><path d="M2.5 19c2 0 2-2 4-2s2 2 4 2 2-2 4-2 2 2 4 2 2-2 3-2"/></svg></button>
         <button type="button" class="roundbtn themebtn" id="themebtn" aria-label="Alternar modo dia e noite" title="Modo dia / noite"></button>
         <div class="who"><span class="av">RC</span><div><b>Time de vendas</b><span id="updated"></span></div></div>
@@ -900,7 +927,7 @@ b,strong{font-weight:700}
   run(first);
 })();
 /* ======================= DADOS ======================= */
-const ATUALIZADO = '17 nov 2026';
+const ATUALIZADO = '25 nov 2026';
 
 const ICONS = {
   pace:'<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 17.5a9 9 0 1 1 15 0"/><path d="m12 13 4-4.5"/><circle cx="12" cy="13" r="1.6"/></svg>',
@@ -1308,90 +1335,30 @@ $('#sharebtn').addEventListener('click',async()=>{
 });
 
 /* ======================= INÍCIO ======================= */
+const LINK_REUNIAO = 'https://claude.ai/artifact/XHvw7KMewv9pQiddQWEynX';
+const LINK_SIMULADOR = 'https://claude.ai/artifact/FkWErAs7DDMJhf8MjC61Lw';
+const LINK_AIRBNB = 'dados-airbnb.html';
+const LINK_3D = 'https://rendape.flly.com.br/';
 function viewInicio(){
-  const all=[...PV,...OBJ], ok=all.filter(x=>S(x)==='ok').length, rev=all.filter(x=>S(x)==='rev').length, dr=all.filter(x=>S(x)==='draft').length, total=all.length;
-  const pvOk=PV.filter(p=>S(p)==='ok').length+1, obOk=OBJ.filter(o=>S(o)==='ok').length;
-  const r=daysTo(2026,12,26);
-  const pct=Math.round(ok/total*100);
-  const arrow='<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>';
-  const bars=[
-    {lb:'Desembolso até a entrega', v:196, cls:'hatch'},
-    {lb:'Renda fixa (100% CDI)', v:245, bg:'var(--verdeSoft)'},
-    {lb:'Patrimônio na entrega', v:441, bg:'var(--verde2)', tip:''},
-    {lb:'Valor do imóvel', v:690, bg:'var(--verdeDeep)'}
+  const ext='<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>';
+  const go=[
+    {cls:'p', n:'1', k:'Apresente', t:'Primeira <b>reunião</b>', d:'A apresentação oficial do Aurora Wellness Living, do Grupo Referência ao empreendimento.', cta:'Abrir a apresentação', href:LINK_REUNIAO, ext:true},
+    {cls:'w', n:'2', k:'Mostre', t:'Empreendimento em <b>3D</b>', d:'Navegue pelo projeto com o cliente: blocos, lazer, unidades e a vista para o mar.', cta:'Abrir o 3D', href:LINK_3D, ext:true},
+    {cls:'k', n:'3', k:'Simule', t:'Simulador de <b>unidades</b>', d:'Qualquer unidade e condição de entrada, com parcela, valor na entrega e valorização na hora.', cta:'Abrir o simulador', href:LINK_SIMULADOR, ext:true},
+    {cls:'w', n:'4', k:'Comprove', t:'Dados do <b>Airbnb</b>', d:'Diárias reais de alta temporada em Carneiros, com os prints, para sustentar a conversa sobre renda.', cta:'Ver os dados', href:LINK_AIRBNB, ext:false}
   ];
-  const max=690;
-  // gauge: semicircle arcs
-  const R=110, C=Math.PI*R, seg=[ok,rev,dr].map(n=>n/total*C);
-  const arc=(off,len,color,extra='')=>`<path d="M 30 140 A ${R} ${R} 0 0 1 250 140" fill="none" stroke="${color}" stroke-width="34" stroke-linecap="butt" stroke-dasharray="${len} ${C}" stroke-dashoffset="${-off}" ${extra}/>`;
-  const icColors=['var(--verde)','var(--caramelo)','var(--verde2)','var(--terra)','var(--verdeDeep)','var(--verde2)','var(--rev)','var(--verde)'];
-  const icTxt=['R$','0','/m','/a','44','↗','⏱','RC'];
-  const top=[1,4,8,2,10];
+  const atalhos=['sdr','closer','objecoes','pontos','follow','indicacao'];
   return `
-  <div class="page-head"><div><span class="eyebrow">Aurora Wellness Living · Rendapê</span><h1>Central de <b>Vendas</b></h1><p>Argumentos, objeções e frentes de aquisição do Aurora Wellness Living, o empreendimento da Rendapê na Praia dos Carneiros, num só lugar.</p></div>
-    <div class="tools"><a class="btn fill" href="#objecoes">${ICONS.objecoes}<span>Abrir objeções</span></a><button class="btn line" data-copy="${encodeURIComponent(TESE.fala.replace(/^“|”$/g,''))}"><span>Copiar pitch</span></button></div>
-  </div>
-  <div class="stats">
-    <a class="stat hero" href="#pontos"><span class="t">Pontos de Vista</span><span class="arr">${arrow}</span><span class="n">${PV.length+1}</span><span class="s"><i>${pvOk}</i> validados para reunião</span></a>
-    <a class="stat" href="#objecoes"><span class="t">Objeções</span><span class="arr">${arrow}</span><span class="n">${OBJ.length}</span><span class="s"><i>${obOk}</i> com quebra validada</span></a>
-    <a class="stat" href="#guerrilha"><span class="t">Frentes de aquisição</span><span class="arr">${arrow}</span><span class="n">${G.frentes.length}</span><span class="s">Estratégia definida, execução não iniciada</span></a>
-    <a class="stat" href="#objecoes"><span class="t">Em revisão</span><span class="arr">${arrow}</span><span class="n">${rev}</span><span class="s" style="color:var(--rev)">Itens esperando confirmação</span></a>
-  </div>
-  <div class="bento">
-    <section class="card b-analytics">
-      <div class="ch"><div><h3>O mesmo dinheiro, dois destinos</h3><p class="sub">Em mil reais, no cenário de R$ 690 mil na entrega. Patrimônio fica R$ 196 mil acima da renda fixa.</p></div>${badge('ok')}</div>
-      <div class="pills">${bars.map(b=>`<div class="pillc"><div class="ptrack"><span class="vl">${b.v}</span><div class="pill ${b.cls||''}" style="height:${Math.max(30,Math.round(b.v/max*165))}px;${b.bg?'background:'+b.bg:''}">${b.tip?`<span class="tip">${b.tip}</span>`:''}</div></div><span class="lb">${b.lb}</span></div>`).join('')}</div>
-      <p class="analytics-note">Para empatar com o CDI, basta valorizar ~12% até a entrega. Selic de 13,75%, renda fixa líquida de IR.</p>
-    </section>
-    <section class="card b-lembrete">
-      <h3>Lembrete</h3>
-      <div class="big">Réveillon Carneiros</div>
-      <div class="when">26/12/2026 a 02/01/2027</div>
-      ${r>0?`<div class="days">${r} dias</div><div class="when">para a maior janela do ano, ainda sem plano</div>`:`<div class="when" style="margin-top:12px">Em andamento ou encerrado</div>`}
-      <a class="btn fill" href="#guerrilha" style="margin-top:18px">${ICONS.guerrilha}<span>Ver guerrilha</span></a>
-    </section>
-    <section class="card b-numeros">
-      <div class="ch"><div><h3>Números oficiais</h3><p class="sub">Aurora Wellness Living</p></div></div>
-      <div class="nums">${NUMEROS.map((x,i)=>`<div class="r"><span class="ic" style="background:${icColors[i]}">${icTxt[i]}</span><div><div class="k">${x.v}${x.rev?' '+badge('rev'):''}</div><div class="v">${x.k}${x.n?' · '+x.n:''}</div></div></div>`).join('')}</div>
-    </section>
-    <section class="card b-lista">
-      <div class="ch"><h3>Objeções mais comuns</h3><a class="lnk" href="#objecoes">Ver todas</a></div>
-      <div class="olist">${top.map(n=>{const o=OBJ.find(x=>x.n===n);return `<a href="#objecoes" data-open="${n}"><span class="av" style="background:var(--verdeTint)">${n}</span><span><div class="q">${o.q}</div><div class="c">Medo real: <b>${o.medo}</b></div></span>${badge(S(o))}</a>`}).join('')}</div>
-    </section>
-    <section class="card b-gauge">
-      <h3>Material validado</h3>
-      <div class="gauge">
-        <svg viewBox="0 0 280 166" aria-hidden="true">
-          <defs><pattern id="hp" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="8" height="8" fill="transparent"/><rect width="3" height="8" fill="var(--hatch)"/></pattern></defs>
-          ${arc(0,C,'var(--surface2)')}
-          ${arc(0,seg[0],'var(--verde2)')}
-          ${arc(seg[0],seg[1],'var(--verdeDeep)')}
-          ${arc(seg[0]+seg[1],seg[2],'url(#hp)')}
-        </svg>
-        <div class="pc"><b>${pct}%</b><span>pronto para reunião</span></div>
-      </div>
-      <div class="glegend"><span><i class="sw" style="background:var(--verde2)"></i>Validado ${ok}</span><span><i class="sw" style="background:var(--verdeDeep)"></i>Em revisão ${rev}</span><span><i class="sw hatch"></i>Rascunho ${dr}</span></div>
-    </section>
-    <section class="card b-tese">
-      <svg class="w" viewBox="0 0 280 160" fill="none" aria-hidden="true"><g stroke="#B9AAEC" stroke-width="1.6"><path d="M0 40c35 0 35-22 70-22s35 22 70 22 35-22 70-22 35 22 70 22"/><path d="M0 70c35 0 35-22 70-22s35 22 70 22 35-22 70-22 35 22 70 22"/><path d="M0 100c35 0 35-22 70-22s35 22 70 22 35-22 70-22 35 22 70 22"/><path d="M0 130c35 0 35-22 70-22s35 22 70 22 35-22 70-22 35 22 70 22"/></g></svg>
-      <h3>Tese da campanha</h3>
-      <p>${G.tese}</p>
-      ${copyBtn(G.tese)}
-    </section>
-    <section class="card b-changes">
-      <div class="ch"><div><h3>O que mudou</h3><p class="sub">As últimas atualizações da Central</p></div></div>
-      <div class="chg">${CHANGES.slice(0,6).map(c=>`<div class="chg-i"><span class="chg-d">${c.d.split('-').reverse().slice(0,2).join('/')}</span><div><b>${c.t}</b><p>${c.r}</p></div></div>`).join('')}</div>
-    </section>
-    <section class="card b-lib">
-      <span class="eyebrow">Biblioteca de materiais</span>
-      <h3>Book, tabela, vídeos e apresentação</h3>
-      <p class="sub" style="margin:6px 0 16px">Tudo o que o time pode baixar e enviar fica no Notion da Rendapê, sempre na versão atual.</p>
-      <a class="btn fill" href="${NOTION_URL}" target="_blank" rel="noopener">${ICONS.notion}<span>Abrir no Notion</span></a>
-    </section>
-    <section class="card b-mercado">
-      <div class="ch"><h3>Mercado</h3><span class="sub">Dados com fonte para sustentar a conversa</span></div>
-      <div class="mkt">${MERCADO.map(x=>`<div><b>${x.v}</b><span>${x.k}</span><small>${x.n}</small></div>`).join('')}</div>
-    </section>
+  <div class="page-head"><div><span class="eyebrow">Aurora Wellness Living · Rendapê</span><h1>Central de <b>Vendas</b></h1><p>Tudo o que o time usa com o cliente, num só lugar. Comece pelos quatro passos da reunião.</p></div></div>
+  <div class="ini-go">${go.map(g=>`<a class="ini-card ${g.cls}" href="${g.href}"${g.ext?' target="_blank" rel="noopener"':''}>
+      <span class="ini-k"><i>${g.n}</i>${g.k}</span>
+      <h2>${g.t}</h2>
+      <p>${g.d}</p>
+      <span class="ini-cta">${g.cta}${ext}</span>
+    </a>`).join('')}</div>
+  <div class="ini-more">
+    <span class="eyebrow">Atalhos do time</span>
+    <div class="ini-links">${atalhos.map(id=>{const a=AREAS.find(x=>x.id===id); return a?`<a href="#${id}">${ICONS[id]||''}<span>${a.nome}</span></a>`:'';}).join('')}<a href="${NOTION_URL}" target="_blank" rel="noopener">${ICONS.notion}<span>Book e materiais</span></a></div>
   </div>
   <p class="foot">Valorização e renda são sempre cenário, projeção ou estimativa, nunca garantia.</p>`;
 }
